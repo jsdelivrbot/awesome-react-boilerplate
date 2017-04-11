@@ -1,6 +1,6 @@
 module.exports = {
   entry: [
-    './src/index.js'
+    './client/src/index.js'
   ],
   output: {
     path: __dirname,
@@ -20,7 +20,9 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
   devServer: {
+    host: "localhost",
+    port: 9000,
     historyApiFallback: true,
-    contentBase: './'
+    contentBase: './client'
   }
 };
