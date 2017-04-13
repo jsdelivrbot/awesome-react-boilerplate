@@ -14,23 +14,23 @@ We recommended to be knowledge with the following libraries :
 The example application is a simple service which give you options to view create and delete posts.
 This documentation guide you how to develop with the basic tools for client side, like how to add new component, container etc...
 
-#### `Components` #### ##### `( components/ )` #####
+#### `Components`
 Soon
 
-#### `Core Components` ##### `( components/core/ )`
+#### `Core Components`
 Soon
 
-#### `Containers` ##### `( containers/ )`
+#### `Containers`
 Soon
 
-#### `Form Containers` ##### `( containers/ )`
+#### `Form Containers`
 Soon
 
-#### `Actions` ##### `( actions/ )`
+#### `Actions`
 Soon
 
-#### `Reducers` ##### `( reducers )`
+#### `Reducers`
 Soon
 
-#### `Api` ##### `( api )`
+#### `Api`
 Soon
