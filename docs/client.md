@@ -18,7 +18,49 @@ This documentation guide you how to develop with the basic tools for client side
 Soon
 
 #### `Core Components`
+Core Components under `( components/core/ )`,
+include your custom basic components that serve your application.
+for example: myInput,  myTextarea, myH1 etc..
+Those components created by you and most the time wrap the basic html5 elements with your design and additional elements.
+Any core component is wrapp with `createField`.
+`createField` convert your component to Filed from `redux-form`, this useful when you use your components inside
+`Form Container`.
+If you use `createField` your component be able to get the follwoing data:
+`meta: { touched, error, warning }, input`
+this data provide you the information that send from `Form Container` and can serve you for validations and more...
+
+##### Create Core Component by cli
 Soon
+##### create your component manualy
+1. Add your new folder with the component name to `( components/core/ )`.
+2. Create `index.js` file. this is the place to write your component code.
+3. Export your component path inside `( Components/core/index.js )`
+
+#### Example Code
+```JSX
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { createField } from '../../../utiles'
+
+const component = ({ meta: { touched, error, warning }, input, type, label }) => {
+
+    return (
+        <div className="form-group">
+            <label>{label}</label>
+            <div>
+                <input {...input} placeholder={label} type={type} className="form-control"/>
+                {error}
+            </div>
+        </div>
+    );
+
+};
+
+export default createField(component, {
+    type: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired
+});
+```
 
 #### `Containers`
 Soon
