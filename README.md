@@ -8,9 +8,17 @@
 <div align="center"><strong>Start your next react project in seconds</strong></div>
 <div align="center">React boilerplate including client and server side. easy to understand, easy to use!</div>
 
+<br/>
+<div align="center"><strong>MERN - Mongodb Express React NodeJS</strong></div>
+<br/>
 <div align="center">
   <sub>Created by Refael Oknin and Max Toyberman</sub>
 </div>
+
+## Documentation
+
+- [**Client**](docs/client.md): An introduction how to develop your own application on client side.
+- [**Server**](docs/server.md): An introduction how to develop your own application on server side
 
 ## Client
 #### Based Libraries
