@@ -6,7 +6,7 @@ export function connectWithReduxForm (component, mapStateToProps, mapDispatchToP
     return connect(mapStateToProps, mapDispatchToProps)(reduxForm(reduxFormConfig)(component));
 }
 
-export function createField(component, requiredFields) {
+export function createField(component, requiredProps) {
 
     class CreateField extends Component {
         render() {
@@ -23,7 +23,7 @@ export function createField(component, requiredFields) {
     }
 
 
-    CreateField.propTypes = requiredFields;
+    CreateField.propTypes = requiredProps;
 
     return CreateField;
 }
