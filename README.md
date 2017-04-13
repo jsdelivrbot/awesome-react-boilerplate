@@ -1,6 +1,7 @@
 # awesome-mern-boilerplate
 
-<img src="https://www.wagonhq.com/images/posts/react.png" alt="react boilerplate banner" align="center" />
+<img src="https://www.shareicon.net/download/2016/07/10/119874_apps_512x512.png" alt="react boilerplate banner" align="center" />
+<img src="https://www.shareicon.net/download/2016/07/10/119874_apps_512x512.png" alt="react boilerplate banner" align="center" />
 
 ## Client
 #### Based Libraries
