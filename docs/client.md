@@ -18,15 +18,14 @@ This documentation guide you how to develop with the basic tools for client side
 Soon
 
 #### `Core Components`
-Core Components under `( components/core/ )`,
-include your custom basic components that serve your application.
-for example: myInput,  myTextarea, myH1 etc..
-Those components created by you and most the time wrap the basic html5 elements with your design and additional elements.
-Any core component is wrapp with `createField`.
-`createField` convert your component to Filed from `redux-form`, this useful when you use your components inside
-`Form Container`.
-If you use `createField` your component be able to get the follwoing data:
-`meta: { touched, error, warning }, input`
+Core Components under `( components/core/ )`,<br/>
+include your custom basic components that serve your application.<br/>
+for example: myInput,  myTextarea, myH1 etc..<br/>
+Those components created by you and most the time wrap the basic html5 elements with your design and additional elements.<br/>
+Any core component is wrapp with `createField`.<br/>
+`createField` convert your component to Filed from `redux-form`, this useful when you use your components inside `Form Container`.<br/>
+If you use `createField` your component be able to get the follwoing data:<br/>
+`meta: { touched, error, warning }, input`<br/>
 this data provide you the information that send from `Form Container` and can serve you for validations and more...
 
 ##### Create Core Component by cli
