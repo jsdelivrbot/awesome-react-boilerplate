@@ -1,5 +1,7 @@
 # awesome-mern-boilerplate
 
+<img src="https://raw.githubusercontent.com/react-boilerplate/react-boilerplate-brand/master/assets/banner-metal-optimized.jpg" alt="react boilerplate banner" align="center" />
+
 ## Client
 #### Based Libraries
 We recommended to be knowledge with the following libraries :
