@@ -12,25 +12,25 @@ We recommended to be knowledge with the following libraries :
 ### Workflow
 
 The example application is a simple service which give you options to view create and delete posts.
-This documentation guide you how to develop with the basic tools for client side, like how to add new component, container etc..
+This documentation guide you how to develop with the basic tools for client side, like how to add new component, container etc...
 
-#### `Components ( components/ )`
+#### `Components` ##### `( components/ )`
 Soon
 
-##### `Core Components ( components/core/ )`
+#### `Core Components` ##### `( components/core/ )`
 Soon
 
-##### `Containers ( containers/ )`
+#### `Containers` ##### `( containers/ )`
 Soon
 
-##### `Form Containers ( containers/ )`
+#### `Form Containers` ##### `( containers/ )`
 Soon
 
-##### `Actions ( actions/ )`
+#### `Actions` ##### `( actions/ )`
 Soon
 
-##### `Reducers ( reducers )`
+#### `Reducers` ##### `( reducers )`
 Soon
 
-##### `Api ( api )`
+#### `Api` ##### `( api )`
 Soon
