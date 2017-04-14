@@ -51,7 +51,7 @@ If you use `createField` your component be able to get the follwoing data:
 `meta: { touched, error, warning }, input`
 this data provide you the information that send from `Form Container` and can serve you for validations and more...
 <br/> 
-> **Core Component Name** cli automaticly inject `cor.` prefix to your core component.
+> **Core Component Name** - cli automaticly inject `cor.` prefix to your core component.
 this best practice to use prefix name to core components to recognize them inside containers.
 
 ##### Create Core Component by cli
