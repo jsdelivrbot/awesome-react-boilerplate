@@ -75,10 +75,12 @@ this best practice to use prefix name to core components to recognize them insid
 $ gulp createCoreComponent --name MyCoreComponent
 ```
 ### create your component manualy
-    1) Add new folder with the component name to `( components/core/ )`.
-    2) Create `index.js` file. this is the place to write your component code.
-    3) Export your component path inside `( Components/core/index.js )`. add `cor.` prefix to the component name.
-    4) Now you can import the component from core: `import { Input } from '../../components/core';`
+```markdown
+1) Add new folder with the component name to `( components/core/ )`.
+2) Create `index.js` file. this is the place to write your component code.
+3) Export your component path inside `( Components/core/index.js )`. add `cor.` prefix to the component name.
+4) Now you can import the component from core: `import { Input } from '../../components/core';`
+```
 
 #### Example Code
 ```JSX
@@ -145,7 +147,9 @@ but with my experince i prefer all the roots apis to be in one place.
 
 
 ### Add api decleratio manualy
-    1) Go to `api/index.js` and add your new declaration.
+```markdown
+1) Go to `api/index.js` and add your new declaration.
+```
 
 #### Example Code
 ```JSX
