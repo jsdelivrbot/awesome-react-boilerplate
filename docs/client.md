@@ -22,14 +22,15 @@ This documentation guide you how to develop with the basic tools for client side
 * [Reducers](#reducers)
 * [Api](#api)
 * [Utiles](#utiles)
-
+<br/>
 ## <a name="component"></a>`Components`
-<p>
-    Components, not much to say, here your components `( components/ )` or in other words `dump components`,
-    it means that the component is not connect to `redux` and relay only on `props`.
-    We recommended to use arrow function for better performance,
-    But youc an also use React Component.
-</p>
+
+Components, not much to say, here your components `( components/ )` or in other words `dump components`,
+it means that the component is not connect to `redux` and relay only on `props`.
+
+We recommended to use arrow function for better performance,
+But youc an also use React Component.
+
 <br/>
 
 > **Component Name** - cli automaticly inject `dmb.` prefix to your component.
@@ -45,17 +46,19 @@ $ gulp createComponent --name MyComponent
 <br/>
 
 ## <a name="coreComponent"></a>`Core Components`
-<p>
-    Core Components under `( components/core/ )`,
-    include your custom basic components that serve your application.
-    for example: myInput,  myTextarea, myH1 etc..
-    Those components created by you and most the time wrap the basic html5 elements with your design and additional elements.
-    Any core component is wrapp with `createField`.
-    `createField` convert your component to Filed from `redux-form`, this useful when you use your components inside `Form Container`.
-    If you use `createField` your component be able to get the follwoing data:
-    `meta: { touched, error, warning }, input`
-    this data provide you the information that send from `Form Container` and can serve you for validations and more...
-</p>
+
+Core Components under `( components/core/ )`,
+include your custom basic components that serve your application.
+
+For example: myInput,  myTextarea, myH1 etc..
+Those components created by you and most the time wrap the basic html5 elements with your design and additional elements.
+
+Any core component is wrapp with `createField`.<br/>
+`createField` convert your component to Filed from `redux-form`, this useful when you use your components inside `Form Container`.<br/>
+If you use `createField` your component be able to get the follwoing data:<br/>
+`meta: { touched, error, warning }, input` <br/>
+this data provide you the information that send from `Form Container` and can serve you for validations and more...
+
 <br/>
 
 > **Core Component Name** - cli automaticly inject `cor.` prefix to your core component.
@@ -99,46 +102,41 @@ export default createField(component, {
 <br/>
 
 ## <a name="styledComponent"></a>`Styled Components`
-<p>
-    Soon
-</p>
+
+Soon
 
 <br/>
 
 ## <a name="containers"></a>`Containers`
-<p>
-    Soon
-</p>
+
+Soon
 
 <br/>
 
 ## <a name="formContainers"></a>`Form Containers`
-<p>
-    Soon
-</p>
+
+Soon
 
 <br/>
 
 ## <a name="actions"></a>`Actions`
-<p>
-    Soon
-</p>
+
+Soon
 
 <br/>
 
 ## <a name="reducers"></a>`Reducers`
-<p>
-    Soon
-</p>
+
+Soon
 
 <br/>
 
 ## <a name="api"></a>`Api`
-<p>
-    Inside `api/index.js` you can define all the roots to your apis.
-    This is not mandatory to use this file, you can add this where ever you want,
-    but with my experince i prefer all the roots apis to be in one place.
-</p>
+
+Inside `api/index.js` you can define all the roots to your apis.
+This is not mandatory to use this file, you can add this where ever you want,
+but with my experince i prefer all the roots apis to be in one place.
+
 
 ### Add api decleratio manualy
     1) Go to `api/index.js` and add your new declaration.
@@ -151,8 +149,8 @@ export const REDUXBLOG_ROOT_URL = 'https://www.google.co.il';
 <br/>
 
 ## <a name="utiles"></a>`Utiles`
-<p>
-    Simply to understand. just add here all your general functions that can serv you entire the application.
-</p>
+
+Simply to understand. just add here all your general functions that can serv you entire the application.
+
 
 
