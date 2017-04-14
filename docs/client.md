@@ -36,7 +36,7 @@ But you can also use React Component.
 
 <br/>
 
-> **Component Name** - cli automaticly inject `dmb.` prefix to your component.
+> **Component Name** - cli automaticly inject `Dmb_` prefix to your component.
 this best practice to use prefix name to components to recognize them inside containers.
 
 ### Create Core Component by cli
@@ -45,7 +45,7 @@ $ gulp createComponent --name MyComponent
 ```
 ### create your component manualy
 ```markdown
-1) Go to `component/` folder and add your own component. add `dmb.` prefix to the component name.
+1) Go to `component/` folder and add your own component. add `Dmb_` prefix to the component name.
 ```
 
 <br/>
@@ -67,7 +67,7 @@ this data provide you the information that send from `Form Container` and can se
 
 <br/>
 
-> **Core Component Name** - cli automaticly inject `cor.` prefix to your core component.
+> **Core Component Name** - cli automaticly inject `Cor_` prefix to your core component.
 this best practice to use prefix name to core components to recognize them inside containers.
 
 ### Create Core Component by cli
@@ -78,7 +78,7 @@ $ gulp createCoreComponent --name MyCoreComponent
 ```markdown
 1) Add new folder with the component name to `( components/core/ )`.
 2) Create `index.js` file. this is the place to write your component code.
-3) Export your component path inside `( Components/core/index.js )`. add `cor.` prefix to the component name.
+3) Export your component path inside `( Components/core/index.js )`. add `Cor_` prefix to the component name.
 4) Now you can import the component from core: `import { Input } from '../../components/core';`
 ```
 
