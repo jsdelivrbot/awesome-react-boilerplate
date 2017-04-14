@@ -6,7 +6,7 @@ const component = ({ meta: { touched, error, warning }, input }) => {
 
     return (
         <div>
-          // write here your own core component
+          <!-- write here your own core component -->
         </div>
     );
 

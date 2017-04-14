@@ -9,13 +9,19 @@ gulp.task('createComponent', () => {
     let componentName =getArg('name');
 
     if(!componentName) {
-        console.error("ERR! You are not select mandatory parameter '--name'");
+        console.error("ERR! You are not select mandatory parameter value '--name'");
+        return;
+    }
+
+    if(componentName[0] !== componentName[0].toUpperCase()) {
+        console.error("ERR! '--name' value must start with uppercase");
         return;
     }
 
     // add new component
     gulp.src('./generator/templates/client/component-template')
-        .pipe(rename('client/src/components/' + 'dmb.' + componentName + '.js'))
+        .pipe(rename('client/src/components/' + 'Dmb_' + componentName + '.js'))
+        .pipe(template({name: componentName}))
         .pipe(gulp.dest("./"));
 
 });
@@ -25,18 +31,23 @@ gulp.task('createCoreComponent', () => {
     let componentName =getArg('name');
 
     if(!componentName) {
-        console.error("ERR! You are not select mandatory parameter '--name'");
+        console.error("ERR! You are not select mandatory parameter value '--name'");
+        return;
+    }
+
+    if(componentName[0] !== componentName[0].toUpperCase()) {
+        console.error("ERR! '--name' value must start with uppercase");
         return;
     }
 
     // add new component and folder to core
     gulp.src('./generator/templates/client/core-component-template')
-        .pipe(rename('client/src/components/core/' + 'cor.' + componentName + '/'  + 'index.js'))
+        .pipe(rename('client/src/components/core/' + 'Cor_' + componentName + '/'  + 'index.js'))
         .pipe(gulp.dest("./"));
 
     // update index.js in core
     gulp.src('./client/src/components/core/index.js')
-        .pipe(footer("export { default as <%= name %> } from './<%= name %>';\n", { name : 'cor.' + componentName} ))
+        .pipe(footer("export { default as <%= name %> } from './<%= name %>';\n", { name : 'Cor_' + componentName} ))
         .pipe(gulp.dest('./client/src/components/core/'));
 
 });

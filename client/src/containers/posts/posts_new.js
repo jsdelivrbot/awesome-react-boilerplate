@@ -3,7 +3,7 @@ import { connectWithReduxForm } from 'redux-form-field';
 import { createPost } from '../../actions/posts/actions_posts';
 import { Link } from 'react-router';
 
-import { Input, Textarea } from '../../components/core';
+import { Cor_Input, Cor_Textarea } from '../../components/core';
 
 class PostsNew extends Component {
     onChg () {
@@ -18,9 +18,9 @@ class PostsNew extends Component {
 
                 <h3>Create A New Post</h3>
 
-                <Input name="title" type="text" label="Title" onChange={this.onChg} />
-                <Input name="categories" type="text" label="Categories" />
-                <Textarea name="content" label="Content" onChange={this.onChg} />
+                <Cor_Input name="title" type="text" label="Title" onChange={this.onChg} />
+                <Cor_Input name="categories" type="text" label="Categories" />
+                <Cor_Textarea name="content" label="Content" onChange={this.onChg} />
 
                 <button type="submit" className="btn btn-primary">Submit</button>
                 <Link to="/" className="btn btn-danger">Cancel</Link>
