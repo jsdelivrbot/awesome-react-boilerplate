@@ -15,6 +15,7 @@ The example application is a simple service which give you options to view creat
 This documentation guide you how to develop with the basic tools for client side, like how to add new component, container etc...
 * [Components](#component)
 * [Core Components](#coreComponent)
+* [Styled Components](#styledComponent)
 * [Containers](#containers)
 * [Form Containers](#formContainers)
 * [Actions](#actions)
@@ -71,6 +72,9 @@ export default createField(component, {
     label: PropTypes.string.isRequired
 });
 ```
+
+#### <a name="styledComponent"></a>`Styled Components`
+Soon
 
 #### <a name="containers"></a>`Containers`
 Soon
