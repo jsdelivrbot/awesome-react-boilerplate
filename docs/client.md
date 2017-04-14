@@ -88,10 +88,6 @@ Inside `api/index.js` you can define all the roots to your apis.
 This is not mandatory to use this file, you can add this where ever you want,
 but with my experince i prefer all the roots apis to be in one place.
 
-##### Add api decleration by cli
-```
-$ gulp addApi REDUXBLOG_ROOT_URL "http://reduxblog.herokuapp.com/api"
-```
 ##### Add api decleratio manualy
 1. Go to `api/index.js` and add your new declaration.
 
