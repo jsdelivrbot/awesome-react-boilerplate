@@ -40,21 +40,24 @@ this best practice to use prefix name to components to recognize them inside con
 $ gulp createComponent --name MyComponent
 ```
 ### create your component manualy
-    1. Go to `component/` folder and add your own component. add `dmb.` prefix to the component name.
+    1) Go to `component/` folder and add your own component. add `dmb.` prefix to the component name.
 
 <br/>
 
 ## <a name="coreComponent"></a>`Core Components`
-Core Components under `( components/core/ )`,
-include your custom basic components that serve your application.
-for example: myInput,  myTextarea, myH1 etc..
-Those components created by you and most the time wrap the basic html5 elements with your design and additional elements.
-Any core component is wrapp with `createField`.
-`createField` convert your component to Filed from `redux-form`, this useful when you use your components inside `Form Container`.
-If you use `createField` your component be able to get the follwoing data:
-`meta: { touched, error, warning }, input`
-this data provide you the information that send from `Form Container` and can serve you for validations and more...
-<br/> 
+<p>
+    Core Components under `( components/core/ )`,
+    include your custom basic components that serve your application.
+    for example: myInput,  myTextarea, myH1 etc..
+    Those components created by you and most the time wrap the basic html5 elements with your design and additional elements.
+    Any core component is wrapp with `createField`.
+    `createField` convert your component to Filed from `redux-form`, this useful when you use your components inside `Form Container`.
+    If you use `createField` your component be able to get the follwoing data:
+    `meta: { touched, error, warning }, input`
+    this data provide you the information that send from `Form Container` and can serve you for validations and more...
+</p>
+<br/>
+
 > **Core Component Name** - cli automaticly inject `cor.` prefix to your core component.
 this best practice to use prefix name to core components to recognize them inside containers.
 
@@ -63,10 +66,10 @@ this best practice to use prefix name to core components to recognize them insid
 $ gulp createCoreComponent --name MyCoreComponent
 ```
 ##### create your component manualy
-1. Add new folder with the component name to `( components/core/ )`.
-2. Create `index.js` file. this is the place to write your component code.
-3. Export your component path inside `( Components/core/index.js )`. add `cor.` prefix to the component name.
-4. Now you can import the component from core: `import { Input } from '../../components/core';`
+    1) Add new folder with the component name to `( components/core/ )`.
+    2) Create `index.js` file. this is the place to write your component code.
+    3) Export your component path inside `( Components/core/index.js )`. add `cor.` prefix to the component name.
+    4) Now you can import the component from core: `import { Input } from '../../components/core';`
 
 #### Example Code
 ```JSX
