@@ -61,7 +61,7 @@ $ gulp createCoreComponent --name MyCoreComponent
 ##### create your component manualy
 1. Add new folder with the component name to `( components/core/ )`.
 2. Create `index.js` file. this is the place to write your component code.
-3. Export your component path inside `( Components/core/index.js )`. add `dmb.` prefix to the component name.
+3. Export your component path inside `( Components/core/index.js )`. add `cor.` prefix to the component name.
 4. Now you can import the component from core: `import { Input } from '../../components/core';`
 
 #### Example Code
