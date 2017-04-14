@@ -23,7 +23,7 @@ This documentation guide you how to develop with the basic tools for client side
 * [Api](#api)
 * [Utiles](#utiles)
 
-### <a name="component"></a>`Components`
+## <a name="component"></a>`Components`
 Components, not much to say, here your components `( components/ )` or in other words `dump components`,
 it means that the component is not connect to `redux` and relay only on `props`.
 We recommended to use arrow function for better performance,
