@@ -1,7 +1,7 @@
 ## Client Documentation
-#### Based Libraries
+### Based Libraries
 We recommended to be knowledge with the following libraries :
-* axios
+* [axios](https://github.com/mzabriskie/axios)
 * react-redux
 * redux-promise
 * redux-form
