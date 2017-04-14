@@ -29,7 +29,7 @@ it means that the component is not connect to `redux` and relay only on `props`.
 We recommended to use arrow function for better performance,
 But youc an also use React Component.
 <br/>
-> **Component Name** - cli automaticly inject `cor.` prefix to your component.
+> **Component Name** - cli automaticly inject `dmb.` prefix to your component.
 this best practice to use prefix name to components to recognize them inside containers.
 
 ##### Create Core Component by cli
@@ -37,7 +37,7 @@ this best practice to use prefix name to components to recognize them inside con
 $ gulp createComponent --name MyComponent
 ```
 ##### create your component manualy
-1. Go to `component/` folder and add your own component.
+1. Go to `component/` folder and add your own component. add `dmb.` prefix to the component name.
 
 
 #### <a name="coreComponent"></a>`Core Components`
@@ -61,7 +61,7 @@ $ gulp createCoreComponent --name MyCoreComponent
 ##### create your component manualy
 1. Add new folder with the component name to `( components/core/ )`.
 2. Create `index.js` file. this is the place to write your component code.
-3. Export your component path inside `( Components/core/index.js )`
+3. Export your component path inside `( Components/core/index.js )`. add `dmb.` prefix to the component name.
 4. Now you can import the component from core: `import { Input } from '../../components/core';`
 
 #### Example Code
