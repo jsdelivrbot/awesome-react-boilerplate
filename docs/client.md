@@ -31,7 +31,7 @@ Components, not much to say, here your components `( components/ )` or in other 
 it means that the component is not connect to `redux` and relay only on `props`.
 
 We recommended to use arrow function for better performance,
-But youc an also use React Component.
+But you can also use React Component.
 
 <br/>
 
