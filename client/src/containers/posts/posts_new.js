@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connectWithReduxForm } from 'redux-form-field';
 import { createPost } from '../../actions/posts/actions_posts';
+import { Link } from 'react-router';
 
 import { Input, Textarea } from '../../components/core';
 
@@ -22,6 +23,7 @@ class PostsNew extends Component {
                 <Textarea name="content" label="Content" onChange={this.onChg} />
 
                 <button type="submit" className="btn btn-primary">Submit</button>
+                <Link to="/" className="btn btn-danger">Cancel</Link>
 
             </form>
         );
@@ -32,18 +34,20 @@ function validate(values) {
     const errors = {};
 
     if (!values.title) {
-        errors.title = 'Enter a username';
+        errors.title = 'Enter a title';
+    }
+
+    if (!values.categories) {
+        errors.categories = 'Enter categories';
+    }
+
+    if (!values.content) {
+        errors.content = 'Enter some content';
     }
 
     return errors;
 }
 
-/* connectWithReduxForm parameters:
-    1 - component
-    2 - mapStateToProps
-    3 - mapDispatchToProps
-    4 - reduxForm config
- */
 export default connectWithReduxForm(PostsNew,
     null,
     {
