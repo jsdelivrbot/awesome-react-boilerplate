@@ -29,7 +29,9 @@ If you use `createField` your component be able to get the follwoing data:
 this data provide you the information that send from `Form Container` and can serve you for validations and more...
 
 ##### Create Core Component by cli
-Soon
+```
+$ gulp createCoreComponent MyCoreComponent
+```
 ##### create your component manualy
 1. Add new folder with the component name to `( components/core/ )`.
 2. Create `index.js` file. this is the place to write your component code.
