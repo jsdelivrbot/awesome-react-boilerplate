@@ -22,7 +22,9 @@ This documentation guide you how to develop with the basic tools for client side
 * [Reducers](#reducers)
 * [Api](#api)
 * [Utiles](#utiles)
+
 <br/>
+
 ## <a name="component"></a>`Components`
 
 Components, not much to say, here your components `( components/ )` or in other words `dump components`,
@@ -55,6 +57,7 @@ Those components created by you and most the time wrap the basic html5 elements 
 
 Any core component is wrapp with `createField`.<br/>
 `createField` convert your component to Filed from `redux-form`, this useful when you use your components inside `Form Container`.<br/>
+
 If you use `createField` your component be able to get the follwoing data:<br/>
 `meta: { touched, error, warning }, input` <br/>
 this data provide you the information that send from `Form Container` and can serve you for validations and more...
