@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connectWithReduxForm } from '../../utiles';
+import { connectWithReduxForm } from 'redux-form-field';
 import { createPost } from '../../actions/posts/actions_posts';
 
 import { Input, Textarea } from '../../components/core';
