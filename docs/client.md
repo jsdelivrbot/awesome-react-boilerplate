@@ -61,11 +61,11 @@ $ gulp createComponent --name MyComponent
 > **Core Component Name** - cli automaticly inject `cor.` prefix to your core component.
 this best practice to use prefix name to core components to recognize them inside containers.
 
-##### Create Core Component by cli
+### Create Core Component by cli
 ```
 $ gulp createCoreComponent --name MyCoreComponent
 ```
-##### create your component manualy
+### create your component manualy
     1) Add new folder with the component name to `( components/core/ )`.
     2) Create `index.js` file. this is the place to write your component code.
     3) Export your component path inside `( Components/core/index.js )`. add `cor.` prefix to the component name.
@@ -97,35 +97,49 @@ export default createField(component, {
 });
 ```
 
-#### <a name="styledComponent"></a>`Styled Components`
-Soon
+## <a name="styledComponent"></a>`Styled Components`
+<p>
+    Soon
+</p>
 
-#### <a name="containers"></a>`Containers`
-Soon
+## <a name="containers"></a>`Containers`
+<p>
+    Soon
+</p>
 
-#### <a name="formContainers"></a>`Form Containers`
-Soon
+## <a name="formContainers"></a>`Form Containers`
+<p>
+    Soon
+</p>
 
-#### <a name="actions"></a>`Actions`
-Soon
+## <a name="actions"></a>`Actions`
+<p>
+    Soon
+</p>
 
-#### <a name="reducers"></a>`Reducers`
-Soon
+## <a name="reducers"></a>`Reducers`
+<p>
+    Soon
+</p>
 
-#### <a name="api"></a>`Api`
-Inside `api/index.js` you can define all the roots to your apis.
-This is not mandatory to use this file, you can add this where ever you want,
-but with my experince i prefer all the roots apis to be in one place.
+## <a name="api"></a>`Api`
+<p>
+    Inside `api/index.js` you can define all the roots to your apis.
+    This is not mandatory to use this file, you can add this where ever you want,
+    but with my experince i prefer all the roots apis to be in one place.
+</p>
 
-##### Add api decleratio manualy
-1. Go to `api/index.js` and add your new declaration.
+### Add api decleratio manualy
+    1) Go to `api/index.js` and add your new declaration.
 
 #### Example Code
 ```JSX
 export const REDUXBLOG_ROOT_URL = 'https://www.google.co.il';
 ```
 
-#### <a name="utiles"></a>`Utiles`
-Soon
+## <a name="utiles"></a>`Utiles`
+<p>
+    Simply to understand. just add here all your general functions that can serv you entire the application.
+</p>
 
 
