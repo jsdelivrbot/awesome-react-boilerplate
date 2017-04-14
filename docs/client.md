@@ -24,10 +24,12 @@ This documentation guide you how to develop with the basic tools for client side
 * [Utiles](#utiles)
 
 ## <a name="component"></a>`Components`
+<p>
 Components, not much to say, here your components `( components/ )` or in other words `dump components`,
 it means that the component is not connect to `redux` and relay only on `props`.
 We recommended to use arrow function for better performance,
 But youc an also use React Component.
+</p>
 <br/>
 > **Component Name** - cli automaticly inject `dmb.` prefix to your component.
 this best practice to use prefix name to components to recognize them inside containers.
