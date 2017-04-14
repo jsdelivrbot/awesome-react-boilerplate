@@ -20,6 +20,7 @@ This documentation guide you how to develop with the basic tools for client side
 * [Actions](#actions)
 * [Reducers](#reducers)
 * [Api](#api)
+* [Utiles](#utiles)
 
 #### <a name="component"></a>`Components`
 Soon
@@ -37,7 +38,7 @@ this data provide you the information that send from `Form Container` and can se
 
 ##### Create Core Component by cli
 ```
-$ gulp createCoreComponent MyCoreComponent
+$ gulp createCoreComponent --name MyComponent
 ```
 ##### create your component manualy
 1. Add new folder with the component name to `( components/core/ )`.
@@ -49,7 +50,7 @@ $ gulp createCoreComponent MyCoreComponent
 ```JSX
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { createField } from '../../../utiles'
+import { createField } from 'redux-form-field';
 
 const component = ({ meta: { touched, error, warning }, input, type, label }) => {
 
@@ -95,5 +96,8 @@ but with my experince i prefer all the roots apis to be in one place.
 ```JSX
 export const REDUXBLOG_ROOT_URL = 'https://www.google.co.il';
 ```
+
+#### <a name="utiles"></a>`Utiles`
+Soon
 
 

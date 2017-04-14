@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { createField } from '../../../utiles'
+import { createField } from 'redux-form-field';
 
 const component = ({ meta: { touched, error, warning }, input, label }) => {
 
