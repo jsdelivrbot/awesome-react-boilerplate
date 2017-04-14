@@ -13,17 +13,18 @@ We recommended to be knowledge with the following libraries :
 
 The example application is a simple service which give you options to view create and delete posts.
 This documentation guide you how to develop with the basic tools for client side, like how to add new component, container etc...
-* [link](#component)
-* [link](#coreComponent)
-* [link](#coreComponent)
-* [link](#coreComponent)
-* [link](#coreComponent)
-* [link](#coreComponent)
+* [Components](#component)
+* [Core Components](#coreComponent)
+* [Containers](#containers)
+* [Form Containers](#formContainers)
+* [Actions](#actions)
+* [Reducers](#reducers)
+* [Api](#api)
 
-#### `Components`<a name="component"></a>
+#### <a name="component"></a>`Components`
 Soon
 
-#### `Core Components`<a name="coreComponent"></a>
+#### <a name="coreComponent"></a>`Core Components`
 Core Components under `( components/core/ )`,
 include your custom basic components that serve your application.
 for example: myInput,  myTextarea, myH1 etc..
@@ -70,17 +71,17 @@ export default createField(component, {
 });
 ```
 
-#### `Containers`
+#### <a name="containers"></a>`Containers`
 Soon
 
-#### `Form Containers`
+#### <a name="formContainers"></a>`Form Containers`
 Soon
 
-#### `Actions`
+#### <a name="actions"></a>`Actions`
 Soon
 
-#### `Reducers`
+#### <a name="reducers"></a>`Reducers`
 Soon
 
-#### `Api`
+#### <a name="api"></a>`Api`
 Soon
