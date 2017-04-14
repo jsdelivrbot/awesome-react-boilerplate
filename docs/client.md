@@ -1,7 +1,7 @@
 ## Client Documentation
 ### Based Libraries
 We recommended to be knowledge with the following libraries :
-* <a href="https://github.com/mzabriskie/axios" target="_blank">axios</a>
+* <a href="https://github.com/mzabriskie/axios" >axios</a>
 * react-redux
 * redux-promise
 * redux-form
