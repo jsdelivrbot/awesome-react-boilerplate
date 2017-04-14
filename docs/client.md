@@ -97,7 +97,7 @@ $ gulp addApi REDUXBLOG_ROOT_URL "http://reduxblog.herokuapp.com/api"
 
 #### Example Code
 ```JSX
-export const REDUXBLOG_ROOT_URL = 'http://reduxblog.herokuapp.com/api';
+export const REDUXBLOG_ROOT_URL = 'https://www.google.co.il';
 ```
 
 
