@@ -5,9 +5,15 @@ import App from './components/app';
 import PostsIndex from './containers/posts/posts_index';
 import PostsNew from './containers/posts/posts_new';
 
+export const ROOT = "/";
+export const POSTS_NEW = "posts/new";
+
 export default (
-    <Route path="/" component={App} >
+    <Route path={ROOT} component={App} >
         <IndexRoute component={PostsIndex} />
-        <Route path="posts/new" component={PostsNew} />
+        <Route path={POSTS_NEW} component={PostsNew} />
     </Route>
 );
+
+
+

@@ -1,8 +1,15 @@
 import axios from 'axios';
-import { FETCH_POSTS, CREATE_POST } from './actions_types'
+import { FETCH_POSTS, CREATE_POST, INITIAL_STATE } from './actions_types'
 import { REDUXBLOG_ROOT_URL } from '../../api';
 
 const API_KEY = '?key=refaelok'
+
+export function initialState () {
+    return {
+        type: INITIAL_STATE,
+        payload: null
+    };
+}
 
 export function fetchPosts () {
     const request = axios.get(`${REDUXBLOG_ROOT_URL}/posts${API_KEY}`);
