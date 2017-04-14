@@ -44,7 +44,7 @@ this best practice to use prefix name to components to recognize them inside con
 $ gulp createComponent --name MyComponent
 ```
 ### create your component manualy
-```MD
+```markdown
 1) Go to `component/` folder and add your own component. add `dmb.` prefix to the component name.
 ```
 
