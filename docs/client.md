@@ -96,31 +96,42 @@ export default createField(component, {
     label: PropTypes.string.isRequired
 });
 ```
+<br/>
 
 ## <a name="styledComponent"></a>`Styled Components`
 <p>
     Soon
 </p>
 
+<br/>
+
 ## <a name="containers"></a>`Containers`
 <p>
     Soon
 </p>
+
+<br/>
 
 ## <a name="formContainers"></a>`Form Containers`
 <p>
     Soon
 </p>
 
+<br/>
+
 ## <a name="actions"></a>`Actions`
 <p>
     Soon
 </p>
 
+<br/>
+
 ## <a name="reducers"></a>`Reducers`
 <p>
     Soon
 </p>
+
+<br/>
 
 ## <a name="api"></a>`Api`
 <p>
@@ -136,6 +147,8 @@ export default createField(component, {
 ```JSX
 export const REDUXBLOG_ROOT_URL = 'https://www.google.co.il';
 ```
+
+<br/>
 
 ## <a name="utiles"></a>`Utiles`
 <p>
