@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const <%= name %> = (props) => {
     return (
         <div>
-          // write here your own component
+          <!-- write here your own core component -->
         </div>
     );
 };
