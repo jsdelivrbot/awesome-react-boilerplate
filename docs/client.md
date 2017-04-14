@@ -24,7 +24,22 @@ This documentation guide you how to develop with the basic tools for client side
 * [Utiles](#utiles)
 
 #### <a name="component"></a>`Components`
-Soon
+Components, not much to say, here your components `( components/ )` or in other words `dump components`,
+it means that the component is not connect to `redux` and relay only on `props`.
+We recommended to use arrow function for better performance,
+But youc an also use React Component.
+<br/>
+> ### Component Name
+cli automaticly inject `cor.` prefix to your component.
+this best practice to use prefix name to components to recognize them inside containers.
+
+##### Create Core Component by cli
+```
+$ gulp createComponent --name MyComponent
+```
+##### create your component manualy
+1. Go to `component/` folder and add your own component.
+
 
 #### <a name="coreComponent"></a>`Core Components`
 Core Components under `( components/core/ )`,
@@ -36,6 +51,10 @@ Any core component is wrapp with `createField`.
 If you use `createField` your component be able to get the follwoing data:
 `meta: { touched, error, warning }, input`
 this data provide you the information that send from `Form Container` and can serve you for validations and more...
+<br/> 
+> ### Core Component Name
+cli automaticly inject `cor.` prefix to your core component.
+this best practice to use prefix name to core components to recognize them inside containers.
 
 ##### Create Core Component by cli
 ```
