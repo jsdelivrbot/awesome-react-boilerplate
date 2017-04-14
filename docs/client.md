@@ -160,7 +160,7 @@ export const REDUXBLOG_ROOT_URL = 'https://www.google.co.il';
 
 ## <a name="utiles"></a>`Utiles`
 
-Simply to understand. just add here all your general functions that can serv you entire the application.
+Simple to understand. just add here all your general functions that can serv you entire the application.
 
 
 
