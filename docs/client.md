@@ -35,11 +35,11 @@ This documentation guide you how to develop with the basic tools for client side
 > **Component Name** - cli automaticly inject `dmb.` prefix to your component.
 this best practice to use prefix name to components to recognize them inside containers.
 
-#### Create Core Component by cli
+### Create Core Component by cli
 ```
 $ gulp createComponent --name MyComponent
 ```
-#### create your component manualy
+### create your component manualy
 1. Go to `component/` folder and add your own component. add `dmb.` prefix to the component name.
 
 <br/>
