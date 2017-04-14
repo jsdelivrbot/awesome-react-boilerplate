@@ -32,15 +32,16 @@ But youc an also use React Component.
 > **Component Name** - cli automaticly inject `dmb.` prefix to your component.
 this best practice to use prefix name to components to recognize them inside containers.
 
-##### Create Core Component by cli
+#### Create Core Component by cli
 ```
 $ gulp createComponent --name MyComponent
 ```
-##### create your component manualy
+#### create your component manualy
 1. Go to `component/` folder and add your own component. add `dmb.` prefix to the component name.
 
+<br/>
 
-#### <a name="coreComponent"></a>`Core Components`
+## <a name="coreComponent"></a>`Core Components`
 Core Components under `( components/core/ )`,
 include your custom basic components that serve your application.
 for example: myInput,  myTextarea, myH1 etc..
