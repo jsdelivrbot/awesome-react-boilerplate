@@ -5,6 +5,7 @@ We recommended to be knowledge with the following libraries :
 * <a href="https://github.com/reactjs/react-redux" target="_blank">react-redux</a>
 * <a href="https://github.com/acdlite/redux-promise" target="_blank">redux-promise</a>
 * <a href="http://redux-form.com/6.6.3/" target="_blank">redux-form</a>
+* <a href="https://www.npmjs.com/package/redux-form-field" target="_blank">redux-form-field</a>
 * <a href="https://github.com/ReactTraining/react-router" target="_blank">react-router</a>
 * <a href="https://github.com/styled-components/styled-components" target="_blank">styled-components</a>
 * <a href="https://facebook.github.io/immutable-js/" target="_blank">immutableJS</a>
