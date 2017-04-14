@@ -38,7 +38,7 @@ this data provide you the information that send from `Form Container` and can se
 
 ##### Create Core Component by cli
 ```
-$ gulp createCoreComponent --name MyComponent
+$ gulp createCoreComponent --name MyCoreComponent
 ```
 ##### create your component manualy
 1. Add new folder with the component name to `( components/core/ )`.
