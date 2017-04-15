@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import axios from 'axios';
 
 async function request(method, url, options, successHandler, errorHandler) {
