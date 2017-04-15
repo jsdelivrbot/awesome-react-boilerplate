@@ -1,8 +1,8 @@
-import { INITIAL_STATE, FETCH_POSTS, CREATE_POST } from '../../actions/posts/actions_types';
+import { FETCH_POSTS, CREATE_POST } from '../../actions/posts/actions_types';
 
-const INIT_STATE = { all: [], post: null, createPostSuccess: null };
+const INITIAL_STATE = { all: [], post: null };
 
-export default function (state = INIT_STATE, action) {
+export default function (state = INITIAL_STATE, action) {
     switch(action.type) {
 
         case INITIAL_STATE:
@@ -10,12 +10,6 @@ export default function (state = INIT_STATE, action) {
 
         case FETCH_POSTS:
             return { ...state, all: action.payload.data };
-
-        case CREATE_POST:
-            if(action.payload.request.status == 201)
-                return { ...state, createPostSuccess: true };
-            else
-                return { ...state, createPostSuccess: false };
 
         default:
             return state;

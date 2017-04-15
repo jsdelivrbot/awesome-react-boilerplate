@@ -1,27 +1,34 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-async function requestCall(method, url, params, successHandler, errorHandler) {
-  const response = {};
-  
-  try {
-      switch (method) {
-        case: 'get':
-            response = await axios.get(url, {params: params});
-            break;
-        case: 'post':
-            response = await axios.post(url, payload);
-            break;
-      }
-      
-      successHandler(response);
-  } 
-  catch(e) {
-      response = e;
-      errorHandler(e);
-  }
-  
-  return response;
+async function requestCall(method, url, options, successHandler, errorHandler) {
+    let response = {};
+
+    try {
+        switch (method) {
+            case 'get':
+                response = await axios.get(url, {params: options});
+                break;
+            case 'post':
+                response = await axios.post(url, options);
+                break;
+        }
+
+        response.error = false;
+
+        if(typeof successHandler === "function")
+            successHandler(response);
+    }
+    catch(e) {
+        response = e;
+        response.error = true;
+
+        if(typeof errorHandler === "function")
+            errorHandler(e);
+    }
+
+    return response;
 }
 
-export defualt requestCall;
+
+export default requestCall;
