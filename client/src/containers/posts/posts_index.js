@@ -23,10 +23,4 @@ class PostsIndex extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-
-    }
-}
-
-export default connect(mapStateToProps, { fetchPosts } )(PostsIndex);
+export default connect(null, { fetchPosts } )(PostsIndex);
