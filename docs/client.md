@@ -19,6 +19,7 @@ This documentation guide you how to develop with the basic tools for client side
 * [Styled Components](#styledComponent)
 * [Containers](#containers)
 * [Form Containers](#formContainers)
+* [requires](#requires)
 * [Actions](#actions)
 * [Reducers](#reducers)
 * [Api](#api)
@@ -122,6 +123,12 @@ Soon
 <br/>
 
 ## <a name="formContainers"></a>`Form Containers`
+
+Soon
+
+<br/>
+
+## <a name="requires"></a>`requires`
 
 Soon
 
