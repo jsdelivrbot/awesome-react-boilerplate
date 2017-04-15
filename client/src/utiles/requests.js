@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 async function requestCall(method, url, options, successHandler, errorHandler) {
-  let response = {};
-  
+    let response = {};
+
     try {
         switch (method) {
             case 'get':
@@ -14,16 +14,20 @@ async function requestCall(method, url, options, successHandler, errorHandler) {
                 break;
         }
 
-        if(successHandler)
+        response.error = false;
+
+        if(typeof successHandler === "function")
             successHandler(response);
     }
     catch(e) {
         response = e;
-        if(errorHandler)
+        response.error = true;
+
+        if(typeof errorHandler === "function")
             errorHandler(e);
     }
-  
-  return response;
+
+    return response;
 }
 
 
