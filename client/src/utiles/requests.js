@@ -1,23 +1,15 @@
 import axios from 'axios';
 
-async function request(method, url, options, successHandler, errorHandler) {
+async function request(config, successHandler, errorHandler) {
     let response = {};
-
+    
     try {
-        switch (method) {
-            case 'get':
-                response = await axios.get(url, {params: options});
-                break;
-            case 'post':
-                response = await axios.post(url, options);
-                break;
-        }
-
+        response = await axios(config);       
         response.error = false;
-
+        
         if(typeof successHandler === "function")
             successHandler(response);
-    }
+    } 
     catch(e) {
         response = e;
         response.error = true;
