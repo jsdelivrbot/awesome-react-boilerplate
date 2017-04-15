@@ -12,6 +12,7 @@ export function initialState () {
     };
 }
 
+
 export function fetchPosts () {
     const response = request('get', `${REDUXBLOG_ROOT_URL}/posts`, { key: API_KEY });
 
