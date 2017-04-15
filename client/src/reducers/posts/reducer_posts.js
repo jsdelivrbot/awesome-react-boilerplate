@@ -11,12 +11,12 @@ export default function (state = INITIAL_STATE, action) {
 
         case INITIAL_STATE:
             return state.set({
-                all: [], 
-                post: null
+                'all': [], 
+                'post': null
             });
 
         case FETCH_POSTS:
-            return { ...state, all: action.payload.data };
+            return set.state('all', action.payload.data );
 
         default:
             return state;
