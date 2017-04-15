@@ -8,13 +8,7 @@ const INITIAL_STATE = fromJS({
 
 export default function (state = INITIAL_STATE, action) {
     switch(action.type) {
-
-        case INITIAL_STATE:
-            return state.set({
-                'all': [], 
-                'post': null
-            });
-
+            
         case FETCH_POSTS:
             return set.state('all', action.payload.data );
 
