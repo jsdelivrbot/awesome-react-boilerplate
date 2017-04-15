@@ -17,8 +17,8 @@ async function requestCall(method, url, params, successHandler, errorHandler) {
       successHandler(response);
   } 
   catch(e) {
-    response = e;
-    errorHandler(e);
+      response = e;
+      errorHandler(e);
   }
   
   return response;
