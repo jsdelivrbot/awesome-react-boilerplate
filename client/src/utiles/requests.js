@@ -15,17 +15,29 @@ function requestCall(method, url, options, successHandler, errorHandler) {
 
 }
 
-function* get(url, params, successHandler, errorHandler) {
-  const request = yield axios.get(url, {params: params});
+async function get(url, params, successHandler, errorHandler) {
+  const request;
+  
+  try {
+    request = await axios.get(url, {params: params});
+  } catch(e) {
+    request = e;
+  }
   
   return request;
 }
 
-function* post(url, payload, successHandler, errorHandler) {
-  const request = yield axios.post(url, payload);
+async function post(url, payload, successHandler, errorHandler) {
+  const request;
+  
+  try {
+    request = await axios.post(url, payload);
+  } catch(e) {
+    request = e;
+  }
   
   return request;
-}
 
+}
 
 export defualt requestCall;
