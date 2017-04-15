@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-async function requestCall(method, url, options, successHandler, errorHandler) {
+async function request(method, url, options, successHandler, errorHandler) {
     let response = {};
 
     try {
@@ -31,4 +31,4 @@ async function requestCall(method, url, options, successHandler, errorHandler) {
 }
 
 
-export default requestCall;
+export default request;
