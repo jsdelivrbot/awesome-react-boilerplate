@@ -128,7 +128,7 @@ Soon
 
 <br/>
 
-## <a name="requests"></a>`requires`
+## <a name="requests"></a>`requests`
 
 Use Requests `( utiles/requests.js )` to call apis in action right before you send it to reducers.
 Requests is async, Although , you can use it **like it is sync function** right before return type and action.
