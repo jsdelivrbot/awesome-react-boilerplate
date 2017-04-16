@@ -5,11 +5,10 @@ const rename = require("gulp-rename");
 
 
 gulp.task('createComponent', () => {
-    let componentName =getArg('name');
+    let componentName = getArg('name');
     
     if(!validateName(componentName, '--name', true)) return;
 
-    // add new component
     createTemplate(
         './generator/templates/client/component-template',
         'client/src/components/' + 'Dmb_' + componentName + '.js',
@@ -19,24 +18,41 @@ gulp.task('createComponent', () => {
 });
 
 gulp.task('createCoreComponent', () => {
-    let componentName =getArg('name');
+    let componentName = getArg('name');
     
     if(!validateName(componentName, '--name', true)) return;
 
-    // add new component and folder to core
     createTemplate(
         './generator/templates/client/core-component-template',
         'client/src/components/core/' + 'Cor_' + componentName + '/'  + 'index.js',
         {}
     );
 
-    // update index.js in core
     addFooter(
         './client/src/components/core/index.js',
         './client/src/components/core/'
         "export { default as <%= name %> } from './<%= name %>';\n",
         { name : 'Cor_' + componentName}
     );
+});
+
+gulp.task('createAction', () => {
+    let componentName = getArg('name');
+    
+    if(!validateName(componentName, '--name', true)) return;
+
+    createTemplate(
+        './generator/templates/client/actions-types-template',
+        'client/src/actions/' + componentName + '/' + 'actions_' + componentName + '.js',
+        {}
+    );
+       
+    createTemplate(
+        './generator/templates/client/actions-template',
+        'client/src/actions/' + componentName + '/' + 'actions_types.js',
+        {}
+    );
+    
 });
 
 /*** HELPERS ***/
