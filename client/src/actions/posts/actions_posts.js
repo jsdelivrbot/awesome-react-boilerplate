@@ -1,5 +1,5 @@
-import { FETCH_POSTS, CREATE_POST } from './actions_types';
 import request from '../../utiles/requests';
+import { FETCH_POSTS, CREATE_POST } from './actions_types';
 import { REDUXBLOG_ROOT_URL } from '../../api';
 
 const API_KEY = 'refaelok';
