@@ -139,8 +139,9 @@ That's give the control to decied what happen to any request.
 For example, if you want to show loading spinner on any request, or show general server error if occured on the server.
 
 `request parameters`
+
 ```markdown
-1) config - The standart config from <a href="https://github.com/mzabriskie/axios" target="_blank">axios</a>.
+1) config - The standart config from axios.
 2) successHandler [OPTIONAL] - Callback function that get `response`. sometimes you want to handle request, for example to redirect immidatly after success call.
 3) errorHandler [OPTIONAL] - Same as successHandler but for errors
 ```
