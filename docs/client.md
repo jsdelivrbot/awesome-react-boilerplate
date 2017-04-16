@@ -138,8 +138,7 @@ That's give the control to decied what happen to any request.
 
 For example, if you want to show loading spinner on any request, or show general server error if occured on the server.
 
-`request parameters`
-
+### request parameters
 ```markdown
 1) config - The standart config from axios.
 2) successHandler [OPTIONAL] - Callback function that get `response`. 
@@ -203,6 +202,7 @@ $ gulp createActionFiles --name myActionsName
 ```markdown
 1) Go to `actions/` folder and add your own folder with given name (lowercase first).
 2) Add 2 files: 
+
 * actions_types.js
 * actions_myActionsName.js
 ```
