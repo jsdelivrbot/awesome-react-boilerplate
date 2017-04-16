@@ -68,7 +68,7 @@ this data provide you the information that send from `Form Container` and can se
 
 <br/>
 
-> **Core Component Name** - cli automaticly inject `Cor_` prefix to your core component.
+> **Core Component Name** - cli automatically inject `Cor_` prefix to your core component.
 this best practice to use prefix name to core components to recognize them inside containers.
 
 ### Create Core Component by cli
@@ -211,7 +211,64 @@ $ gulp createActionFiles --name myActionsName
 
 ## <a name="reducers"></a>`Reducers`
 
-Soon
+Reducer is the place to manipulate your states `( reducers/ )`.
+We use `immutableJS` to do that. This library have a crazy performance for change objects.
+I recommended you to learn how it work even if you are not going to use it.
+
+`index.js` - Here we combine our reducer to redux.
+
+### Create Core Component by cli
+```
+$ gulp createReducer --name myReducer --store storeName
+```
+### create your component manualy
+```markdown
+1) Add new folder with the name of the reducer inside `/reducers/` folder.
+2) Add new .js file with prefix reducer_ and then the name of the reducer ( same to the folder name )
+3) Export your reducer from the file in stage 2.
+4) Combine your reducer with the rest inside `reducers/index.js`
+```
+
+> **Reducers Name** - cli automatically inject `reducer__` prefix to your reducer.
+We also recommended to use same name to the actions.
+For example reducer_myName, actions_myName. (cli do it automatically when you create container with cli)
+
+#### `index.js` Example Code
+```JSX
+import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
+import PostReducer from './posts/reducer_posts';
+
+const rootReducer = combineReducers({
+    form: formReducer,
+    posts: PostReducer
+});
+
+export default rootReducer;
+```
+
+#### `reducer_myReducer` Example Code
+```JSX
+import { fromJS } from 'immutable';
+import { FETCH_POSTS } from '../../actions/posts/actions_types';
+
+const INITIAL_STATE = fromJS({
+    all: [], 
+    post: null
+});
+
+export default function (state = INITIAL_STATE, action) {
+    switch(action.type) {
+            
+        case FETCH_POSTS:
+            return state.set('all', action.payload.data );
+
+        default:
+            return state;
+            
+    }
+}
+```
 
 <br/>
 

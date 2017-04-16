@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const template = require('gulp-template');
 const footer = require('gulp-footer');
 const rename = require("gulp-rename");
+const inject = require('gulp-inject-string');
 
 
 gulp.task('createComponent', () => {
@@ -19,7 +20,7 @@ gulp.task('createComponent', () => {
 
 gulp.task('createCoreComponent', () => {
     let componentName = getArg('name');
-    
+
     if(!validateName(componentName, '--name', true)) return;
 
     createTemplate(
@@ -30,42 +31,75 @@ gulp.task('createCoreComponent', () => {
 
     addFooter(
         './client/src/components/core/index.js',
-        './client/src/components/core/'
+        './client/src/components/core/',
         "export { default as <%= name %> } from './<%= name %>';\n",
         { name : 'Cor_' + componentName}
     );
 });
 
-gulp.task('createAction', () => {
-    let componentName = getArg('name');
+gulp.task('createActionFiles', () => {
+    let actionName = getArg('name');
     
-    if(!validateName(componentName, '--name', true)) return;
+    if(!validateName(actionName, '--name', false)) return;
 
     createTemplate(
         './generator/templates/client/actions-types-template',
-        'client/src/actions/' + componentName + '/' + 'actions_' + componentName + '.js',
+        'client/src/actions/' + actionName + '/' + 'actions_types.js',
         {}
     );
        
     createTemplate(
         './generator/templates/client/actions-template',
-        'client/src/actions/' + componentName + '/' + 'actions_types.js',
+        'client/src/actions/' + actionName + '/' + 'actions_' + actionName + '.js',
         {}
     );
     
 });
 
+gulp.task('createReducer', () => {
+    let reducerName = getArg('name');
+    let sotreName = getArg('store');
+
+    if(!validateName(reducerName, '--name', false) && !validateName(sotreName, '--store', false)) return;
+
+    createTemplate(
+        './generator/templates/client/reducer-template',
+        'client/src/reducers/' + reducerName + '/' + 'reducer_' + reducerName + '.js',
+        {name: reducerName}
+    );
+
+    injectAfter(
+        './client/src/reducers/index.js',
+        './client/src/reducers/',
+        "import { combineReducers } from 'redux';",
+        '\nimport ' + reducerName + ' from ' + "'./" + reducerName + '/' + 'reducer_' + reducerName + "';"
+    ).on('end', () => {
+        injectAfter(
+            './client/src/reducers/index.js',
+            './client/src/reducers/',
+            "const rootReducer = combineReducers({",
+            '\n\t' + sotreName + ': ' + reducerName + ','
+        );
+    });
+});
+
 /*** HELPERS ***/
 
+function injectAfter(src, dest, injectAfter, iject) {
+    return gulp.src(src)
+        .pipe(inject.after(injectAfter, iject))
+        .pipe(gulp.dest(dest));
+}
+
 function createTemplate(src, dest, templateParams) {
-    gulp.src(src)
+    return gulp.src(src)
         .pipe(rename(dest))
-        .pipe(templateParams(injectParams))
+        .pipe(template(templateParams))
         .pipe(gulp.dest("./"));
 }
 
 function addFooter(src, dest, footerTemplate, footerParams) {
-    gulp.src(src)
+    return gulp.src(src)
         .pipe(footer(footerTemplate, footerParams ))
         .pipe(gulp.dest(dest));
 }
@@ -80,6 +114,8 @@ function validateName (componentName, expectedParam, checkFirstIsUppercase) {
         console.error("ERR!"+ expectedName + " value must start with uppercase");
         return false;
     }
+
+    return true;
 }
 
 function getArg(name) {
