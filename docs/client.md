@@ -174,12 +174,12 @@ In the follwoing files you declare about teh actions types and export them.
 Create Actions files for each container is the best practice.
 
 Declare `actions types` under `( /actions_types.js )`.
-```
+```JSX
 export const UPDATE_MYSTATE = 'UPDATE_MYSTATE';
 ```
 
 Declare `actions types` under `( /actions_myActions.js )`.
-```
+```JSX
 export function updateSomeState (state) {
     return {
         type: UPDATE_MYSTATE,
