@@ -19,11 +19,12 @@ gulp.task('createComponent', () => {
     }
 
     // add new component
-    gulp.src('./generator/templates/client/component-template')
-        .pipe(rename('client/src/components/' + 'Dmb_' + componentName + '.js'))
-        .pipe(template({name: componentName}))
-        .pipe(gulp.dest("./"));
-
+    createTemplate(
+        './generator/templates/client/component-template',
+        'client/src/components/' + 'Dmb_' + componentName + '.js',
+        {name: componentName}
+    );
+    
 });
 
 gulp.task('createCoreComponent', () => {
@@ -41,17 +42,36 @@ gulp.task('createCoreComponent', () => {
     }
 
     // add new component and folder to core
-    gulp.src('./generator/templates/client/core-component-template')
-        .pipe(rename('client/src/components/core/' + 'Cor_' + componentName + '/'  + 'index.js'))
-        .pipe(gulp.dest("./"));
+    createTemplate(
+        './generator/templates/client/core-component-template',
+        'client/src/components/core/' + 'Cor_' + componentName + '/'  + 'index.js',
+        {}
+    );
 
     // update index.js in core
-    gulp.src('./client/src/components/core/index.js')
-        .pipe(footer("export { default as <%= name %> } from './<%= name %>';\n", { name : 'Cor_' + componentName} ))
-        .pipe(gulp.dest('./client/src/components/core/'));
-
+    addFooter(
+        './client/src/components/core/index.js',
+        './client/src/components/core/'
+        "export { default as <%= name %> } from './<%= name %>';\n",
+        { name : 'Cor_' + componentName}
+    );
+    
 });
 
+/*** HELPERS ***/
+
+function createTemplate(src, dest, templateParams) {
+    gulp.src(src)
+        .pipe(rename(dest))
+        .pipe(templateParams(injectParams))
+        .pipe(gulp.dest("./"));
+}
+
+function addFooter(src, dest, footerTemplate, footerParams) {
+    gulp.src(src)
+        .pipe(footer(footerTemplate, footerParams ))
+        .pipe(gulp.dest(dest));
+}
 
 function getArg(name) {
 
