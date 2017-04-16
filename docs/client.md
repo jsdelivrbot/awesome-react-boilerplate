@@ -19,7 +19,7 @@ This documentation guide you how to develop with the basic tools for client side
 * [Styled Components](#styledComponent)
 * [Containers](#containers)
 * [Form Containers](#formContainers)
-* [requires](#requires)
+* [requests](#requests)
 * [Actions](#actions)
 * [Reducers](#reducers)
 * [Api](#api)
@@ -128,15 +128,77 @@ Soon
 
 <br/>
 
-## <a name="requires"></a>`requires`
+## <a name="requests"></a>`requires`
 
-Soon
+Use Requests `( utiles/requests.js )` to call apis in action right before you send it to reducers.
+Requests is async, Although , you can use it **like it is sync function** right before return type and action.
+
+We prefer encapsulate all the requests via one file `( requests.js )`.
+That's give the control to decied what happen to any request.
+
+For example, if you want to show loading spinner on any request, or show general server error if occured on the server.
+
+`request parameters`
+```markdown
+1. config - The standart config from <a href="https://github.com/mzabriskie/axios" target="_blank">axios</a>.
+2. successHandler [OPTIONAL] - Callback function that get `response`. sometimes you want to handle request, for example to redirect immidatly after success call.
+3. errorHandler [OPTIONAL] - Same as successHandler but for errors
+```
+
+See more example how to redirect after submit with `successHandler` in [Form Containers](#formContainers).
+
+#### Example Code
+```JSX
+export function createPost(props, sucessHandler, errorHandler) {
+    const response = request({
+        method: 'post',
+        url: POSTS_URL,
+        data: props,
+        params: {key: API_KEY}
+    }, sucessHandler, errorHandler);
+
+    return {
+        type: CREATE_POST,
+        payload: response
+    }
+}
+```
 
 <br/>
 
 ## <a name="actions"></a>`Actions`
 
-Soon
+Actions are the place to create the calls to api or just change some state.
+In the follwoing files you declare about teh actions types and export them.
+
+Declare `actions types` under `( /actions_types.js )`.
+```
+export const UPDATE_MYSTATE = 'UPDATE_MYSTATE';
+```
+
+Declare `actions types` under `( /actions_myActions.js )`.
+```
+export function updateSomeState (state) {
+    return {
+        type: UPDATE_MYSTATE,
+        payload: state
+    };
+}
+```
+
+<br/>
+
+> **Component Name** - cli automaticly inject `Dmb_` prefix to your component.
+this best practice to use prefix name to components to recognize them inside containers.
+
+### Create Core Component by cli
+```
+$ gulp createComponent --name MyComponent
+```
+### create your component manualy
+```markdown
+1) Go to `component/` folder and add your own component. add `Dmb_` prefix to the component name.
+```
 
 <br/>
 
