@@ -140,9 +140,10 @@ For example, if you want to show loading spinner on any request, or show general
 
 `request parameters`
 
-```markdown
+```
 1) config - The standart config from axios.
-2) successHandler [OPTIONAL] - Callback function that get `response`. sometimes you want to handle request, for example to redirect immidatly after success call.
+2) successHandler [OPTIONAL] - Callback function that get `response`. 
+sometimes you want to handle request, for example to redirect immidatly after success call.
 3) errorHandler [OPTIONAL] - Same as successHandler but for errors
 ```
 
@@ -200,7 +201,7 @@ It added 2 files `actions_types` and `actions_myActionsName`.
 $ gulp createActionFiles --name myActionsName
 ```
 ### create your actions files manualy
-```markdown
+```
 1) Go to `actions/` folder and add your own folder with given name (lowercase first).
 2) Add 2 files: 
 * actions_types.js
