@@ -192,7 +192,7 @@ export function updateSomeState (state) {
 
 <br/>
 
-> **actions file Names** - cli automaticly add your actions files to `/actions/myActionsName/`.
+> **actions file names** - cli automaticly add your actions files to `/actions/myActionsName/`.
 It added 2 files `actions_types` and `actions_myActionsName`. 
 `actions_` prefix added automatically
 
