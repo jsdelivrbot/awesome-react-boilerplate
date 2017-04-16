@@ -25,6 +25,7 @@
     "gulp-remove-files": "0.0.3",
     "gulp-rename": "^1.2.2",
     "gulp-template": "^4.0.0",
+    "gulp-inject-string": "^1.1.0",
     "jquery": "^2.2.1",
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
