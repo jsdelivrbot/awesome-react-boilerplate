@@ -37,7 +37,7 @@ But you can also use React Component.
 
 <br/>
 
-> **Component Name** - cli automaticly inject `Dmb_` prefix to your component.
+> **Component Name** - cli automatically inject `Dmb_` prefix to your component.
 this best practice to use prefix name to components to recognize them inside containers.
 
 ### Create Core Component by cli
@@ -140,9 +140,9 @@ For example, if you want to show loading spinner on any request, or show general
 
 `request parameters`
 ```markdown
-1. config - The standart config from <a href="https://github.com/mzabriskie/axios" target="_blank">axios</a>.
-2. successHandler [OPTIONAL] - Callback function that get `response`. sometimes you want to handle request, for example to redirect immidatly after success call.
-3. errorHandler [OPTIONAL] - Same as successHandler but for errors
+1) config - The standart config from <a href="https://github.com/mzabriskie/axios" target="_blank">axios</a>.
+2) successHandler [OPTIONAL] - Callback function that get `response`. sometimes you want to handle request, for example to redirect immidatly after success call.
+3) errorHandler [OPTIONAL] - Same as successHandler but for errors
 ```
 
 See more example how to redirect after submit with `successHandler` in [Form Containers](#formContainers).
@@ -171,6 +171,8 @@ export function createPost(props, sucessHandler, errorHandler) {
 Actions are the place to create the calls to api or just change some state.
 In the follwoing files you declare about teh actions types and export them.
 
+Create Actions files for each container is the best practice.
+
 Declare `actions types` under `( /actions_types.js )`.
 ```
 export const UPDATE_MYSTATE = 'UPDATE_MYSTATE';
@@ -188,16 +190,20 @@ export function updateSomeState (state) {
 
 <br/>
 
-> **Component Name** - cli automaticly inject `Dmb_` prefix to your component.
-this best practice to use prefix name to components to recognize them inside containers.
+> **actions file Names** - cli automaticly add your actions files to `/actions/myActionsName/`.
+It added 2 files `actions_types` and `actions_myActionsName`. 
+`actions_` prefix added automatically
 
-### Create Core Component by cli
+### Create actions files by cli
 ```
-$ gulp createComponent --name MyComponent
+$ gulp createActionFiles --name myActionsName
 ```
-### create your component manualy
+### create your actions files manualy
 ```markdown
-1) Go to `component/` folder and add your own component. add `Dmb_` prefix to the component name.
+1) Go to `actions/` folder and add your own folder with given name (lowercase first).
+2) Add 2 files: 
+* actions_types.js
+* actions_myActionsName.js
 ```
 
 <br/>
