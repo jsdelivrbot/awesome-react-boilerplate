@@ -71,7 +71,7 @@ gulp.task('createReducer', () => {
     injectAfter(
         './client/src/reducers/index.js',
         './client/src/reducers/',
-        "import { combineReducers } from 'redux';",
+        "import { combineReducers } from 'redux-immutable';",
         '\nimport ' + reducerName + ' from ' + "'./" + reducerName + '/' + 'reducer_' + reducerName + "';"
     ).on('end', () => {
         injectAfter(
