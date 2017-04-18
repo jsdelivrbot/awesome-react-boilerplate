@@ -1,25 +1,28 @@
 import axios from 'axios';
 
-async function request(config, successHandler, errorHandler) {
-    let response = {};
-    
-    try {
-        response = await axios(config);       
-        response.error = false;
-        
-        if(typeof successHandler === "function")
-            successHandler(response);
-    } 
-    catch(e) {
-        response = e;
-        response.error = true;
+async function request(config) {
 
-        if(typeof errorHandler === "function")
-            errorHandler(e);
-    }
+    return new Promise(async (resolve, reject) => {
 
-    return response;
+        let response = {};
+
+        try {
+            response = await axios(config);
+            response.error = false;
+
+            resolve(response);
+
+        }
+        catch(e) {
+            response = e.response;
+            response.error = true;
+
+            reject(response);
+
+        }
+
+    });
+
 }
-
 
 export default request;
