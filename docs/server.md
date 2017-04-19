@@ -34,8 +34,6 @@ It will generate under ```server/src/api``` folder with the files of your api :
 ``` gulp createApi --name post ```
 
 ## Result 
-
-> Folder structure
     .
     ├── post         
     |     ├── post.controller.js                    
