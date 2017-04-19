@@ -7,7 +7,9 @@
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "startserver": "node server/src/server.js",
+    "apidocs": "cd server && apidoc -i src/api -o docs"
   },
   "author": "",
   "license": "ISC",
@@ -26,27 +28,38 @@
     "gulp-rename": "^1.2.2",
     "gulp-template": "^4.0.0",
     "gulp-inject-string": "^1.1.0",
+    "gulp-replace": "^0.5.4",
     "jquery": "^2.2.1",
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^0.14.7",
     "webpack": "^2.3.3",
-    "webpack-dev-server": "^2.4.2"
+    "webpack-dev-server": "^2.4.2",
+    "rimraf": "^2.5.2"
   },
   "dependencies": {
     "axios": "^0.16.1",
-    "immutable": "^3.8.1",
-    "babel-preset-stage-1": "^6.1.18",
     "babel-polyfill": "^6.23.0",
+    "babel-preset-stage-1": "^6.1.18",
+    "bcryptjs": "^2.3.0",
+    "body-parser": "~1.0.1",
+    "crypto-js": "^3.1.8",
+    "express": "~4.0.0",
+    
+    "immutable": "^3.8.1",
+    "jsonwebtoken": "^7.3.0",
     "lodash": "^4.17.4",
+    "mongoose": "~4.6.8",
+    "morgan": "~1.0.0",
     "react": "^15.5.0",
     "react-dom": "^15.5.3",
     "react-redux": "^4.4.8",
     "react-router": "^3.0.5",
     "redux": "^3.6.0",
-    "redux-immutable": "^4.0.0",
     "redux-form": "^6.6.2",
     "redux-form-field": "^1.0.3",
-    "redux-promise": "^0.5.3"
+    "redux-immutable": "^4.0.0",
+    "redux-promise": "^0.5.3",
+    "validator": "^7.0.0"
   }
 }

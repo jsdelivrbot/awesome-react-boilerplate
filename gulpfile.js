@@ -3,7 +3,11 @@ const template = require('gulp-template');
 const footer = require('gulp-footer');
 const rename = require("gulp-rename");
 const inject = require('gulp-inject-string');
+const replace = require('gulp-replace');
 
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 gulp.task('createComponent', () => {
     let componentName = getArg('name');
@@ -82,8 +86,66 @@ gulp.task('createReducer', () => {
         );
     });
 });
+/*** SERVER ***/
+gulp.task('createApi', () => {
+    let apiName = getArg('name');
+    if(!validateName(apiName, '--name', false)) return;
+    var UPPERCASE_MODEL_NAME = apiName.toString().toUpperCase();
+    var CapitalLetterModelName = capitalize(apiName);
+    createTemplate(
+        './generator/templates/server/api-controller-template',
+        'server/src/api/'+apiName+'/'+apiName+'.controller.js',
+        {
+         name: apiName,
+         upperCaseModelName : UPPERCASE_MODEL_NAME,
+         capitalLetterModelName: CapitalLetterModelName
+        }
+    );
+    
+    createTemplate(
+        './generator/templates/server/model-template',
+        'server/src/api/'+apiName+'/model/'+apiName+'.js',
+        {
+            capitalLetterModelName: CapitalLetterModelName
+        }
+    );
+    
+    createTemplate(
+        './generator/templates/server/responses-template',
+        'server/src/api/'+apiName+'/responses/index.js',
+        {
+         capitalLetterModelName: CapitalLetterModelName,
+         upperCaseModelName : UPPERCASE_MODEL_NAME
+        }
+    );
+    
+    createTemplate(
+        './generator/templates/server/index-template',
+        'server/src/api/'+apiName+'/index.js',
+        {
+         name: apiName,
+         capitalLetterModelName: CapitalLetterModelName
+        }
+    );
+    
+    replaceText(
+        './server/src/routes/index.js',
+        './server/src/routes/',
+        "// LASTLINE",
+        "app.use('/"+apiName+"', require('../api/"+apiName+"'));\r\n// LASTLINE"
+    );
+    
+});
+
 
 /*** HELPERS ***/
+
+
+function replaceText(src,dest,needle,text){
+     gulp.src(src)
+    .pipe(replace(needle, text))
+    .pipe(gulp.dest(dest));
+}
 
 function injectAfter(src, dest, injectAfter, iject) {
     return gulp.src(src)
@@ -117,6 +179,7 @@ function validateName (componentName, expectedParam, checkFirstIsUppercase) {
 
     return true;
 }
+
 
 function getArg(name) {
 
