@@ -35,14 +35,15 @@ It will generate under ```server/src/api``` folder with the files of your api :
 
 ## Result 
 
--- post
-    - post.controller.js
-    - index.js
-    - model
-        - post.js
-    - responses
-        index.js
-        
+> Folder structure
+    .
+    ├── post         
+    |     ├── post.controller.js                    
+    |     ├── index.js   
+    |     ├── model   
+    |           ├── post.js 
+    |     ├── responses
+    |           ├── index.js   
 
 ## Templating 
 
