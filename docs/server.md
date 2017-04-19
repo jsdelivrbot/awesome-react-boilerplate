@@ -12,7 +12,7 @@ This documentation guide you how to develop with the basic tools for server side
 * [API](#api)
 
 <br/>
-## <a name="api"></a>`API`
+## <a name="api"></a>
 
 A proper API consist the following:
 
