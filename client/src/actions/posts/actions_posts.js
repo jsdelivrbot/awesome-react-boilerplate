@@ -1,33 +1,16 @@
-import request from '../../utiles/requests';
-import { FETCH_POSTS, CREATE_POST } from './actions_types';
-import { REDUXBLOG_ROOT_URL } from '../../api';
+import * as ActionTypes from '../';
 
-const API_KEY = 'refaelok';
-const POSTS_URL = `${REDUXBLOG_ROOT_URL}/posts`;
 
 export function fetchPosts () {
-    const response = request({
-        method: 'get',
-        url: POSTS_URL,
-        params: {key: API_KEY}
-    });
-
     return {
-        type: FETCH_POSTS,
-        payload: response
+        type: ActionTypes.FETCH_POSTS,
+        payload: null
     };
 }
 
-export function createPost(props, sucessHandler, errorHandler) {
-    const response = request({
-        method: 'post',
-        url: POSTS_URL,
-        data: props,
-        params: {key: API_KEY}
-    }, sucessHandler, errorHandler);
-
+export function createPost(props) {
     return {
-        type: CREATE_POST,
+        type: ActionTypes.CREATE_POST,
         payload: response
     }
 }
