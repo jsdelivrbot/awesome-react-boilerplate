@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connectWithReduxForm } from 'redux-form-field';
-import { createPost } from '../../actions/posts/actions_posts';
+import { createPost, initializePosts } from '../../actions/posts/actions_posts';
 import { Link, browserHistory } from 'react-router';
 import { ROOT } from '../../routes';
 
@@ -8,10 +8,17 @@ import { Cor_Input, Cor_Textarea } from '../../components/core';
 
 class PostsNew extends Component {
 
+    componentDidUpdate() {
+        if(this.props.newPostCreated && this.props.submitting) {
+            this.props.initializePosts();
+            browserHistory.push(ROOT);
+        }
+    }
+
     render() {
 
         return (
-            <form onSubmit={this.props.handleSubmit(props => this.props.createPost(props, this.submitSuccessHandler.bind(this), this.submitErrorHandler.bind(this)))} >
+            <form onSubmit={this.props.handleSubmit(this.handleSubmit.bind(this))} >
 
                 <h3>Create A New Post</h3>
 
@@ -27,13 +34,10 @@ class PostsNew extends Component {
 
     }
 
-    submitSuccessHandler(response) {
-        if(!response.error && this.props.submitting)
-            browserHistory.push(ROOT);
-    }
-
-    submitErrorHandler(response) {
-        console.error(response);
+    handleSubmit(props) {
+        return new Promise(() => {
+            this.props.createPost(props);
+        });
     }
 }
 
@@ -59,11 +63,12 @@ function validate(values) {
 export default connectWithReduxForm(PostsNew,
     (state) => {
         return {
-
+            newPostCreated: state.posts.get('newPostCreated')
         }
     },
     {
-        createPost
+        createPost,
+        initializePosts
     },
     {
         form : 'PostsNewForm',

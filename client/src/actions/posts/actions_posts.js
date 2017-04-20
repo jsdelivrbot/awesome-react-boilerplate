@@ -11,6 +11,13 @@ export function fetchPosts () {
 export function createPost(props) {
     return {
         type: ActionTypes.CREATE_POST,
-        payload: response
+        payload: props
+    }
+}
+
+export function initializePosts() {
+    return {
+        type: ActionTypes.INITIAL_POSTS,
+        payload: null
     }
 }
