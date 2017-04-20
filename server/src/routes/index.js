@@ -2,11 +2,12 @@
  * Main application routes
 **/
 
-
+const baseAPI = '/api';
 exports.default = function(app) {
 
 
-app.use('/post', require('../api/post'));
+
+app.use(baseAPI+'/posts', require('../api/posts'));
 // LASTLINE
 
 }
