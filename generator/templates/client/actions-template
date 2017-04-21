@@ -1,6 +1,4 @@
-import request from '../../utiles/requests';
-import { } from './actions_types';
-import { } from '../../api';
+import * as ActionTypes from '../';
 
 export function myAction () {
     // Write here your action
