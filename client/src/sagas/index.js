@@ -1,7 +1,7 @@
 import { takeLatest, takeEvery } from 'redux-saga/effects';
 import createApi from '../api';
 import * as ActionTypes from '../actions';
-import { fetchPosts, createPost } from './posts/sagas_posts'
+import { fetchPosts, createPost } from './posts/saga_posts'
 
 const innorlate = createApi();
 
