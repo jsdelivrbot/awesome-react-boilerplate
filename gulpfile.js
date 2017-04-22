@@ -9,6 +9,53 @@ const replace = require('gulp-replace');
 
 /** ------------------- CLIENT ----------------------------- **/
 
+
+gulp.task('createContainer', () => {
+    let name = getArg('name');
+    let className = getArg('className');
+    let sotreName = getArg('store');
+
+
+    if(!validateName(name, '--name', false) && !validateName(sotreName, '--store', false) && !validateName(className, '--className', true)) return;
+
+    createTemplate(
+        './generator/templates/client/container-template',
+        'client/src/containers/' + name + '/'  + className + '.js',
+        {
+            name: name,
+            className: className
+        }
+    );
+
+    gulp.start('createActionFile');
+    gulp.start('createSagaFile');
+    gulp.start('createReducer');
+
+});
+
+gulp.task('createFormContainer', () => {
+    let name = getArg('name');
+    let className = getArg('className');
+    let sotreName = getArg('store');
+
+
+    if(!validateName(name, '--name', false) && !validateName(sotreName, '--store', false) && !validateName(className, '--className', true)) return;
+
+    createTemplate(
+        './generator/templates/client/form-container-template',
+        'client/src/containers/' + name + '/'  + className + '.js',
+        {
+            name: name,
+            className: className
+        }
+    );
+
+    gulp.start('createActionFile');
+    gulp.start('createSagaFile');
+    gulp.start('createReducer');
+
+});
+
 gulp.task('createComponent', () => {
     let componentName = getArg('name');
     
@@ -41,7 +88,7 @@ gulp.task('createCoreComponent', () => {
     );
 });
 
-gulp.task('createAction', () => {
+gulp.task('createActionFile', () => {
     let actionName = getArg('name');
     
     if(!validateName(actionName, '--name', false)) return;
@@ -52,6 +99,20 @@ gulp.task('createAction', () => {
         {}
     );
     
+});
+
+gulp.task('createSagaFile', () => {
+    let sagaName = getArg('name');
+
+    if(!validateName(sagaName, '--name', false)) return;
+
+
+    createTemplate(
+        './generator/templates/client/saga-template',
+        'client/src/sagas/' + sagaName + '/' + 'saga_' + sagaName + '.js',
+        {}
+    );
+
 });
 
 gulp.task('createReducer', () => {
@@ -168,12 +229,12 @@ function addFooter(src, dest, footerTemplate, footerParams) {
 
 function validateName (componentName, expectedParam, checkFirstIsUppercase) {
     if(!componentName) {
-        console.error("ERR! You are not select mandatory parameter value " + expectedName);
+        console.error("ERR! You are not select mandatory parameter value " + expectedParam);
         return false;
     }
 
     if(componentName[0] !== componentName[0].toUpperCase() && checkFirstIsUppercase) {
-        console.error("ERR!"+ expectedName + " value must start with uppercase");
+        console.error("ERR!"+ expectedParam + " value must start with uppercase");
         return false;
     }
 

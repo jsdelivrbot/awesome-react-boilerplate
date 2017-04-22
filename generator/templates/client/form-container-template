@@ -1,0 +1,51 @@
+import React, { Component } from 'react';
+import { connectWithReduxForm } from 'redux-form-field';
+import * as actions from '../../actions/<%= name %>/actions_<%= name %>';
+
+
+class <%= className %> extends Component {
+    render() {
+
+        return (
+            <form onSubmit={this.props.handleSubmit(this.handleSubmit.bind(this))} >
+
+            </form>
+        );
+
+    }
+
+    handleSubmit(props) {
+        return new Promise(() => {
+            // handle submit here
+        });
+    }
+}
+
+function validate(values) {
+    const errors = {};
+
+    /* EXAMPLE CODE
+    if (!values.title) {
+        errors.title = 'Enter a title';
+    }
+    */
+
+    return errors;
+}
+
+
+export default connectWithReduxForm(<%= className %>,
+    (state) => {
+        return {
+
+        }
+    },
+    {
+
+    },
+    {
+        form : '<%= className %>Form',
+        fields: [],
+        validate
+    }
+);
