@@ -217,7 +217,7 @@ $ gulp createReducer --name myReducer --store storeName
 4) Combine your reducer with the rest inside `reducers/index.js`
 ```
 
-> **Reducers Name** - cli automatically inject `reducer__` prefix to your reducer.
+> **Reducers Name** - cli automatically inject `reducer_` prefix to your reducer.
 We also recommended to use same name to the actions.
 For example reducer_myName, actions_myName. (cli do it automatically when you create container with cli)
 
@@ -262,7 +262,71 @@ export default function (state = INITIAL_STATE, action) {
 
 ## <a name="sagas"></a>`Sagas`
 
-Soon
+Sagas is middleware between teh Action and the Reducer when action need API call.
+In our project we apply the sagas middleware only with 1 root index file.
+`sagas/index.js` is the root to all teh sagas you right and inside the `sagas/` folder you add all the folders that
+include your saga for each container.
+
+### Create Saga by cli
+```
+$ gulp createSaga --name mySaga
+```
+### create your Saga manually
+```markdown
+1) Add new folder with the name of the saga inside `/sagas/` folder.
+2) Add new `.js` file with prefix `saga_` and then the name of the saga ( same name as the folder name )
+3) Export your saga from the file in stage 2.
+4) Combine your saga with the rest inside `sagas/index.js`
+```
+
+> **Sagas Name** - cli automatically inject `saga_` prefix to your saga.
+We also recommended to use same name to the actions.
+For example saga_myName, actions_myName. (cli do it automatically when you create container with cli)
+
+#### `index.js` Example Code
+```JSX
+import { takeLatest, takeEvery } from 'redux-saga/effects';
+import createApi from '../api';
+import * as ActionTypes from '../actions';
+import { fetchPosts, createPost } from './posts/saga_mySaga'
+
+const innorlate = createApi();
+
+export default function* () {
+    yield [
+        takeLatest(ActionTypes.FETCH_POSTS, fetchPosts, innorlate),
+        takeLatest(ActionTypes.CREATE_POST, createPost, innorlate),
+    ]
+}
+```
+
+#### `saga_mySaga` Example Code
+```JSX
+import { call, put } from 'redux-saga/effects';
+import * as ActionTypes from '../../actions';
+
+export function* fetchPosts(api) {
+
+    try {
+        const response = yield call(api.fetchPosts);
+        yield put({type: ActionTypes.FETCH_POSTS_SUCCESS, posts: response.data});
+    } catch (e) {
+        yield put({type: ActionTypes.FETCH_POSTS_ERROR, response: e});
+    }
+
+}
+
+export function* createPost(api, action) {
+
+    try {
+        const response = yield call(api.createPost, action.payload);
+        yield put({type: ActionTypes.CREATE_POST_SUCCESS, newPost: response.data});
+    } catch (e) {
+        yield put({type: ActionTypes.CREATE_POST_ERROR, errorMessage: e});
+    }
+
+}
+```
 
 <br/>
 
