@@ -22,6 +22,7 @@ This documentation guide you how to develop with the basic tools for client side
 * [requests](#requests)
 * [Actions](#actions)
 * [Reducers](#reducers)
+* [Sagas](#sagas)
 * [Api](#api)
 * [Utiles](#utiles)
 
@@ -256,6 +257,12 @@ export default function (state = INITIAL_STATE, action) {
     }
 }
 ```
+
+<br/>
+
+## <a name="sagas"></a>`Sagas`
+
+Soon
 
 <br/>
 

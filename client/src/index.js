@@ -9,9 +9,9 @@ import reducers from './reducers';
 import routes from './routes';
 import rootSaga from './sagas';
 
-/* -------- create the store with middleware ---------- */
 const sagaMiddleware = createSagaMiddleware();
 
+/* -------- create the store with middleware ---------- */
 const createStoreWithMiddleware = applyMiddleware(
     sagaMiddleware
 )(createStore);
