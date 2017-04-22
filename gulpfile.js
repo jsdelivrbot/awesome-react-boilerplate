@@ -5,9 +5,9 @@ const rename = require("gulp-rename");
 const inject = require('gulp-inject-string');
 const replace = require('gulp-replace');
 
-function capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-}
+
+
+/** ------------------- CLIENT ----------------------------- **/
 
 gulp.task('createComponent', () => {
     let componentName = getArg('name');
@@ -41,17 +41,11 @@ gulp.task('createCoreComponent', () => {
     );
 });
 
-gulp.task('createActionFiles', () => {
+gulp.task('createAction', () => {
     let actionName = getArg('name');
     
     if(!validateName(actionName, '--name', false)) return;
 
-    createTemplate(
-        './generator/templates/client/actions-types-template',
-        'client/src/actions/' + actionName + '/' + 'actions_types.js',
-        {}
-    );
-       
     createTemplate(
         './generator/templates/client/actions-template',
         'client/src/actions/' + actionName + '/' + 'actions_' + actionName + '.js',
@@ -75,7 +69,7 @@ gulp.task('createReducer', () => {
     injectAfter(
         './client/src/reducers/index.js',
         './client/src/reducers/',
-        "import { combineReducers } from 'redux-immutable';",
+        "import { reducer as formReducer } from 'redux-form';",
         '\nimport ' + reducerName + ' from ' + "'./" + reducerName + '/' + 'reducer_' + reducerName + "';"
     ).on('end', () => {
         injectAfter(
@@ -86,7 +80,10 @@ gulp.task('createReducer', () => {
         );
     });
 });
-/*** SERVER ***/
+
+
+/** ------------------- SERVER ----------------------------- **/
+
 gulp.task('createApi', () => {
     let apiName = getArg('name');
     if(!validateName(apiName, '--name', false)) return;
@@ -140,6 +137,9 @@ gulp.task('createApi', () => {
 
 /*** HELPERS ***/
 
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 function replaceText(src,dest,needle,text){
      gulp.src(src)
