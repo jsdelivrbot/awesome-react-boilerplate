@@ -1,0 +1,25 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions/<%= name %>/actions_<%= name %>';
+
+class <%= className %> extends Component {
+
+    render () {
+        return (
+            <div>
+
+            </div>
+        );
+    }
+}
+
+export default connect(
+    (state) => {
+        return {
+
+        }
+    },
+    {
+
+    }
+)(<%= className %>);

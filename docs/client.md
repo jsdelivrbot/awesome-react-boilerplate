@@ -119,13 +119,192 @@ Soon
 
 ## <a name="containers"></a>`Containers`
 
-Soon
+Containers is the components who is connected to redux.
+The flow data in the container is :
+
+without API call:
+
+    Container -> Action -> Reducer -> Container
+    
+with API call :
+
+    Container -> Action -> Saga -> Reducer -> Container
+
+> **Container** - Creating container with cli will create for you all the 
+necessary files to reducers saga and actions.
+
+
+### Create Container by cli
+```
+$ gulp createContainer --name myContainer --className myClassName --storeName myStoreName
+```
+### create your Container manually
+```markdown
+1) Go to containers folder and add a new `.js` file and connect him to `redux` like in the example.
+```
+
+#### Example Code
+```JSX
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchPosts } from '../../actions/posts/actions_posts';
+import { Link } from 'react-router';
+import { POSTS_NEW } from '../../routes'
+
+class PostsIndex extends Component {
+
+    componentWillMount() {
+        this.props.fetchPosts();
+    }
+
+    renderPosts() {
+        if(this.props.posts) {
+            return this.props.posts.map((post) => {
+                return (
+                    <li className="list-group-item" key={post.id}>
+                        <span className="pull-xs-right">{post.categories}</span>
+                        <strong>{post.title}</strong>
+                    </li>
+                );
+            });
+        }
+    }
+
+    render () {
+        return (
+            <div>
+                <div className="text-xs-right">
+                    <Link to={POSTS_NEW} className="btn btn-primary" >
+                        Add a Post
+                    </Link>
+                </div>
+                <h3>Posts</h3>
+                <ul className="list-group">
+                    {this.renderPosts()}
+                </ul>
+            </div>
+        );
+    }
+}
+
+export default connect(
+    (state) => {
+        return {
+            posts: state.posts.get('all')
+        }
+    },
+    {
+        fetchPosts
+    }
+)(PostsIndex);
+```
 
 <br/>
 
 ## <a name="formContainers"></a>`Form Containers`
 
-Soon
+Form Container is similar to regular container.
+The only one diffrent is that Form Container is connected to `redux-form-field`.
+
+Form Container give you the control to display validations, error, warnings, clear form etc...
+with easy way.
+
+It work with `Core Components`.
+
+> **Form Container** - Creating form container with cli will create for you all the 
+necessary files to reducers saga and actions.
+
+
+### Create Form Container by cli
+```
+$ gulp createFormContainer --name myContainer --className myClassName --storeName myStoreName
+```
+### create your Container manually
+```markdown
+1) Go to form containers folder and add a new `.js` file and connect him to `connectWithReduxForm` like in the example.
+```
+
+#### Example Code
+```JSX
+import React, { Component } from 'react';
+import { connectWithReduxForm } from 'redux-form-field';
+import { createPost, initializePosts } from '../../actions/posts/actions_posts';
+import { Link, browserHistory } from 'react-router';
+import { ROOT } from '../../routes';
+
+import { Cor_Input, Cor_Textarea } from '../../components/core';
+
+class PostsNew extends Component {
+
+    componentDidUpdate() {
+        if(this.props.newPostCreated && this.props.submitting) {
+            this.props.initializePosts();
+            browserHistory.push(ROOT);
+        }
+    }
+
+    render() {
+
+        return (
+            <form onSubmit={this.props.handleSubmit(this.handleSubmit.bind(this))} >
+
+                <h3>Create A New Post</h3>
+
+                <Cor_Input name="title" type="text" label="Title" />
+                <Cor_Input name="categories" type="text" label="Categories" />
+                <Cor_Textarea name="content" label="Content" />
+
+                <button type="submit" className="btn btn-primary">Submit</button>
+                <Link to={ROOT} className="btn btn-danger">Cancel</Link>
+
+            </form>
+        );
+
+    }
+
+    handleSubmit(props) {
+        return new Promise(() => {
+            this.props.createPost(props);
+        });
+    }
+}
+
+function validate(values) {
+    const errors = {};
+
+    if (!values.title) {
+        errors.title = 'Enter a title';
+    }
+
+    if (!values.categories) {
+        errors.categories = 'Enter categories';
+    }
+
+    if (!values.content) {
+        errors.content = 'Enter some content';
+    }
+
+    return errors;
+}
+
+
+export default connectWithReduxForm(PostsNew,
+    (state) => {
+        return {
+            newPostCreated: state.posts.get('newPostCreated')
+        }
+    },
+    {
+        createPost,
+        initializePosts
+    },
+    {
+        form : 'PostsNewForm',
+        fields: ['title', 'categories', 'content'],
+        validate
+    }
+);
+```
 
 <br/>
 
@@ -186,7 +365,7 @@ It added 1 file called `actions_myActionsName`.
 
 ### Create Actions files by cli
 ```
-$ gulp createAction --name myActionsName
+$ gulp createActionFile --name myActionsName
 ```
 ### create your Actions files manually
 ```markdown
@@ -269,7 +448,7 @@ include your saga for each container.
 
 ### Create Saga by cli
 ```
-$ gulp createSaga --name mySaga
+$ gulp createSagaFile --name mySaga
 ```
 ### create your Saga manually
 ```markdown
