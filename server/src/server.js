@@ -20,7 +20,7 @@ var port     = process.env.PORT || 8080; // set our port
 if(config.useMongo){
   var mongoose   = require('mongoose');
   mongoose.Promise = global.Promise;
-  //mongoose.connect('mongodb://127.0.0.1:27017/db'); // connect to our database  
+  //mongoose.connect(config.mongo.dbUrl); // connect to our database  
 }
 
 

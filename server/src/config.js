@@ -5,7 +5,7 @@ const config = {
         pass:''
     },
     mongo: {
-        dbUrl:''
+        dbUrl:'mongodb://127.0.0.1:27017/db'
     },
     useMongo:false,
     useSql: true
