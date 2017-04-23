@@ -148,10 +148,16 @@ gulp.task('createReducer', () => {
 gulp.task('createApi', () => {
     let apiName = getArg('name');
     if(!validateName(apiName, '--name', false)) return;
+    let apiType = getArg('apiType');
+    if(!apiType){
+        apiType = '';
+    }
+    var template_postfix_apiType = apiType && apiType == 'sql' ? '-sql' : '';
+    
     var UPPERCASE_MODEL_NAME = apiName.toString().toUpperCase();
     var CapitalLetterModelName = capitalize(apiName);
     createTemplate(
-        './generator/templates/server/api-controller-template',
+        './generator/templates/server/api-controller-template'+template_postfix_apiType,
         'server/src/api/'+apiName+'/'+apiName+'.controller.js',
         {
          name: apiName,
@@ -161,7 +167,7 @@ gulp.task('createApi', () => {
     );
     
     createTemplate(
-        './generator/templates/server/model-template',
+        './generator/templates/server/model-template'+template_postfix_apiType,
         'server/src/api/'+apiName+'/model/'+apiName+'.js',
         {
             capitalLetterModelName: CapitalLetterModelName
@@ -190,7 +196,7 @@ gulp.task('createApi', () => {
         './server/src/routes/index.js',
         './server/src/routes/',
         "// LASTLINE",
-        "app.use('/"+apiName+"', require('../api/"+apiName+"'));\r\n// LASTLINE"
+        "app.use(baseAPI+'/"+apiName+"', require('../api/"+apiName+"'));\r\n// LASTLINE"
     );
     
 });

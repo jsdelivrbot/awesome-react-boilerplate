@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var app        = express();
 var morgan     = require('morgan');
 var routes     = require('./routes');
+var config     = require('./config');
 // configure app
 app.use(morgan('dev')); // log requests to the console
 
@@ -16,11 +17,18 @@ app.use(bodyParser.json());
 
 var port     = process.env.PORT || 8080; // set our port
 
-var mongoose   = require('mongoose');
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://127.0.0.1:27017/db'); // connect to our database
+if(config.useMongo){
+  var mongoose   = require('mongoose');
+  mongoose.Promise = global.Promise;
+  //mongoose.connect('mongodb://127.0.0.1:27017/db'); // connect to our database  
+}
 
 
+// SQL
+if(config.useSql){
+    var Sequelize = require('sequelize');
+    var sequelize = new Sequelize(config.sql.db, config.sql.user, config.sql.pass);
+}
 
 // REGISTER OUR ROUTES -------------------------------
 require('./routes').default(app);

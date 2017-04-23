@@ -11,7 +11,29 @@ We recommended to be knowledge with the following libraries :
 ### Workflow
 
 This documentation guide you how to develop with the basic tools for server side, like how to add new api, generate api docs for your server, etc..
+* [CONFIG](#config)
 * [API](#api)
+
+<br/>
+<a name="config"></a>
+Database Configruation located on `server/src/config.js`
+```
+const config = {
+    sql : {
+        db:'seq',
+        user:'root',
+        pass:''
+    },
+    mongo: {
+        dbUrl:''
+    },
+    useMongo:false,
+    useSql: true
+}
+
+module.exports = config;
+```
+change it according to your needs.
 
 <br/>
 <a name="api"></a>
@@ -28,6 +50,11 @@ A proper API consist the following:
 Inorder to create your API, We suggest to use our CLI script<br/>
 
 ``` gulp createApi --name "YOUR_API_NAME" ```
+
+Note - 
+If you are going to use MySQL \ SQL \ PostgreSQL \ MSSQL you should add this:
+``` --apiType sql ``` 
+otherwise it will use mongodb
 
 It will generate under ```server/src/api``` folder with the files of your api :
 
