@@ -16,10 +16,11 @@ This documentation guide you how to develop with the basic tools for server side
 
 <br/>
 <a name="config"></a>
-Database Configruation located on `server/src/config.js`
+
+Database Configruation located on server/src/config.js
 ```
-const config = {
-    sql : {
+config = {
+    sql:{
         db:'seq',
         user:'root',
         pass:''
@@ -31,11 +32,10 @@ const config = {
     useSql: true
 }
 
-module.exports = config;
 ```
 change it according to your needs.
 
-<br/>
+
 <a name="api"></a>
 
 A proper API consist the following:
@@ -53,10 +53,10 @@ Inorder to create your API, We suggest to use our CLI script<br/>
 
 Note - 
 If you are going to use MySQL \ SQL \ PostgreSQL \ MSSQL you should add this:
-``` --apiType sql ``` 
+` --apiType sql ` 
 otherwise it will use mongodb
 
-It will generate under ```server/src/api``` folder with the files of your api :
+It will generate under `server/src/api` folder with the files of your api :
 
 ## Usage 
 
