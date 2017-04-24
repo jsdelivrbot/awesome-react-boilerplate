@@ -6,11 +6,12 @@ const baseAPI = '/api';
 exports.default = function(app) {
 
 
-
+app.use(baseAPI+'/users', require('../api/users'));
+app.use(baseAPI+'/users-sequelize', require('../api/users-sequelize'));
+    
 app.use(baseAPI+'/posts', require('../api/posts'));
-    app.use(baseAPI+'/posts-mysql', require('../api/posts-mysql'));
 
-app.use(baseAPI+'/items', require('../api/items'));
+
 // LASTLINE
 
 }
