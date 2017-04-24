@@ -1,4 +1,4 @@
-const User = require('./../api/users/user-model');
+const User = require('./../api/users-sequelize/user-model');
 
 var authenticate = (req, res, next) => {
     let token = req.header('Authorization');
@@ -9,13 +9,13 @@ var authenticate = (req, res, next) => {
 				reject();
 			});
 		}
-
+        
 		req.user = user;
 		req.token = token;
 		next();
 
 	}).catch((e) => {
-        console.log(e);
+        
 		res.status(401).send();
 		
 	});

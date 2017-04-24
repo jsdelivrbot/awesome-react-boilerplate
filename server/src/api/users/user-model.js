@@ -3,7 +3,7 @@ const validator = require('validator');
 const jwt = require('jsonwebtoken');
 const _ = require ('lodash');
 const bcrypt = require ('bcryptjs');
-
+const config = require("../../config");
 var UserSchema = new mongoose.Schema({
 
 	email: {
@@ -47,12 +47,12 @@ UserSchema.methods.toJSON = function(){
 UserSchema.methods.generateAuthToken = function() {
 	var user = this;
 	var access = 'auth';
-	var token = jwt.sign({_id: user._id.toHexString(), access}, process.env.JWT_SECRET).toString();
+	var token = jwt.sign({_id: user._id.toHexString(), access}, process.env.JWT_SECRET || config.JWT_SECRET).toString();
 
 	user.tokens.push({access, token});
-
+    console.log(user);
 	return user.save().then(() => {
-		return token;
+        return token;
 	});
 };
 
@@ -71,11 +71,13 @@ UserSchema.methods.removeToken = function(token) {
 UserSchema.statics.findByToken = function(token) {
 	var User = this;
 	var decoded;
-
+    console.log(token);
 	try {
-		decoded = jwt.verify(token, process.env.JWT_SECRET);
+		decoded = jwt.verify(token, process.env.JWT_SECRET || config.JWT_SECRET);
+        console.log("decoded token "+decoded);
 	}
 	catch (e){
+        console.log(e);
 		return new Promise((resolve, reject) => {
 			reject();
 		});
@@ -126,6 +128,6 @@ UserSchema.pre('save', function (next) {
 	}
 });
 
-var User = mongoose.model('User', UserSchema);
 
-module.exports = {User};
+
+module.exports = mongoose.model('User', UserSchema);

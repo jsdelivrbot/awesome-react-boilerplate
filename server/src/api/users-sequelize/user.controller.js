@@ -12,18 +12,32 @@ const {ObjectID} = require('mongodb');
 const User = require('./user-model');
 
 
+
 exports.create = function(req, res) {
-
+    let UserInstance = User;
 	var body = _.pick(req.body, ['email', 'password']);
-	var user = new User(body);
-
-	user.save().then(() => {
+    var user = UserInstance.build({
+        email : req.body.email,
+        password : req.body.password
+    });
+    
+    UserInstance.sync({force: false}).then(function () {
+      // Table created
+      return user.preSave(() => {
+        user.save({
+        email : req.body.email,
+        password : req.body.password
+        }).then(() => {
+          console.log(user);
 		return user.generateAuthToken();
-	}).then((token) => {
+	    }).then((token) => {
+          console.log("token "+token);
         res.header('x-auth', token).send(user);
-	}).catch((e) => {
-        res.status(400).send(e);
-	});
+	    }).catch((e) => {
+            res.status(400).send(e.errors);
+	    });
+     });
+  });
 };
 
 // Get the current user
@@ -34,12 +48,14 @@ exports.me = function(req, res) {
 exports.login = function(req, res) {
 
 	var body = _.pick(req.body, ['email', 'password']);
-
+    
 	User.findByCredentials(body.email, body.password).then((user) => {
 		user.generateAuthToken().then((token) => {
+            
 			res.header('x-auth', token).send(user);
 		});
 	}).catch((e) => {
+        
 		res.status(400).send();
 	});
 
@@ -47,9 +63,10 @@ exports.login = function(req, res) {
 
 
 exports.logout = function(req, res) {
-	req.user.removeToken(req.token).then(() => {
-		res.status(200).send();
-	}, () => {
+    req.user.removeTokenLogout(req.token).then((result) => {
+        res.status(200).send();
+	}).catch((e) => {
+        console.log(e);
 		res.status(400).send();
 	});
 };
