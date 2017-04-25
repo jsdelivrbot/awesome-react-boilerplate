@@ -7,7 +7,18 @@ export function* fetchPosts(api) {
         const response = yield call(api.fetchPosts);
         yield put({type: ActionTypes.FETCH_POSTS_SUCCESS, posts: response.data});
     } catch (e) {
-        yield put({type: ActionTypes.FETCH_POSTS_ERROR, response: e});
+        yield put({type: ActionTypes.FETCH_POSTS_ERROR, errorMessage: e});
+    }
+
+}
+
+export function* fetchPost(api, action) {
+
+    try {
+        const response = yield call(api.fetchPost, action.payload);
+        yield put({type: ActionTypes.FETCH_POST_SUCCESS, post: response.data});
+    } catch (e) {
+        yield put({type: ActionTypes.FETCH_POST_ERROR, errorMessage: e});
     }
 
 }

@@ -18,15 +18,7 @@ gulp.task('createContainer', () => {
 
     if(!validateName(name, '--name', false) && !validateName(sotreName, '--store', false) && !validateName(className, '--className', true)) return;
 
-    createTemplate(
-        './generator/templates/client/container-template',
-        'client/src/containers/' + name + '/'  + className + '.js',
-        {
-            name: name,
-            className: className
-        }
-    );
-
+    gulp.start('createContainerOnly');
     gulp.start('createActionFile');
     gulp.start('createSagaFile');
     gulp.start('createReducer');
@@ -41,6 +33,36 @@ gulp.task('createFormContainer', () => {
 
     if(!validateName(name, '--name', false) && !validateName(sotreName, '--store', false) && !validateName(className, '--className', true)) return;
 
+    gulp.start('createFormContainerOnly');
+    gulp.start('createActionFile');
+    gulp.start('createSagaFile');
+    gulp.start('createReducer');
+
+});
+
+gulp.task('createContainerOnly', () => {
+    let name = getArg('name');
+    let className = getArg('className');
+
+    if(!validateName(name, '--name', false) && !validateName(className, '--className', true)) return;
+
+    createTemplate(
+        './generator/templates/client/container-template',
+        'client/src/containers/' + name + '/'  + className + '.js',
+        {
+            name: name,
+            className: className
+        }
+    );
+
+});
+
+gulp.task('createFormContainerOnly', () => {
+    let name = getArg('name');
+    let className = getArg('className');
+
+    if(!validateName(name, '--name', false) && !validateName(className, '--className', true)) return;
+
     createTemplate(
         './generator/templates/client/form-container-template',
         'client/src/containers/' + name + '/'  + className + '.js',
@@ -49,10 +71,6 @@ gulp.task('createFormContainer', () => {
             className: className
         }
     );
-
-    gulp.start('createActionFile');
-    gulp.start('createSagaFile');
-    gulp.start('createReducer');
 
 });
 

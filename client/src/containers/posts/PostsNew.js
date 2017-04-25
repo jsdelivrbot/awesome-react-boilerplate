@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connectWithReduxForm } from 'redux-form-field';
-import { createPost, initializePosts } from '../../actions/posts/actions_posts';
+import * as actions from '../../actions/posts/actions_posts';
 import { Link, browserHistory } from 'react-router';
 import { ROOT } from '../../routes';
 
@@ -67,8 +67,8 @@ export default connectWithReduxForm(PostsNew,
         }
     },
     {
-        createPost,
-        initializePosts
+        createPost: actions.createPost,
+        initializePosts: actions.initializePosts
     },
     {
         form : 'PostsNewForm',

@@ -1,5 +1,11 @@
 import * as ActionTypes from '../';
 
+export function initializePosts() {
+    return {
+        type: ActionTypes.INITIAL_POSTS,
+        payload: null
+    }
+}
 
 export function fetchPosts () {
     return {
@@ -15,9 +21,10 @@ export function createPost(props) {
     }
 }
 
-export function initializePosts() {
+export function fetchPost (id) {
     return {
-        type: ActionTypes.INITIAL_POSTS,
-        payload: null
-    }
+        type: ActionTypes.FETCH_POST,
+        payload: id
+    };
 }
+
