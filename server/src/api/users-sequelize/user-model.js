@@ -42,7 +42,7 @@ var UserSchema = sequelize.define('User', {
             };
         },
         generateAuthToken : function() {
-            console.log("generate auth token");
+            
             var user = this;
             var access = 'auth';
             
@@ -51,14 +51,16 @@ var UserSchema = sequelize.define('User', {
             
             return TokensInstance.sync({force: false}).then(() =>{
                 return TokensInstance.find({where : {UserId:user.get('id')}}).then( (token_find) => {
-                    if(token_find && token_find.get('token')){
+                    if(token_find){
+                        
                         return token_find.update({token:token}).then( (res) => {
                             
                             return token;
                         });
                     }else{
                         return TokensInstance.create({access:access,token:token}).then((token_model) => {
-                             user.setToken(token_model).then(() => {
+                            
+                            user.setToken(token_model).then(() => {
                                  user.save().then(() => {
                                     return token;
                                 });
@@ -67,7 +69,7 @@ var UserSchema = sequelize.define('User', {
                     }
                         
                 }).catch((e) => {
-                    console.log(e);
+                    
                 });
                  
             });
@@ -80,9 +82,10 @@ var UserSchema = sequelize.define('User', {
             let TokensInstance = TokensService;
             return TokensInstance.find({token:token}).then((token_model) => {
              
-              return token_model.destroy({
+              return token_model.update({
+                token: '',
                 where: {
-                    token: token
+                    UserId: user.get('id')
                 }
               });
             });
@@ -115,7 +118,7 @@ var UserSchema = sequelize.define('User', {
                     if (!user) {
                         return Promise.reject();
                     }
-
+                    
                     return new Promise((resolve, reject) => {
                         bcrypt.compare(password, user.get('password'), (err, res) => {
                             

@@ -6,7 +6,7 @@ const bcrypt = require ('bcryptjs');
 
 var Sequelize     = require('sequelize');
 const config      = require('../../config');
-var sequelize = new Sequelize(config.sql.db, config.sql.user, config.sql.pass);
+var sequelize = new Sequelize(config.sql.db, config.sql.user, config.sql.pass,{logging: false});
 var TokensSchema = sequelize.define('Tokens', {
     id: {
         type: Sequelize.INTEGER,

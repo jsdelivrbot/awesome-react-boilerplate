@@ -66,7 +66,7 @@ exports.logout = function(req, res) {
     req.user.removeTokenLogout(req.token).then((result) => {
         res.status(200).send();
 	}).catch((e) => {
-        console.log(e);
+        
 		res.status(400).send();
 	});
 };
