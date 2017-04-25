@@ -1,13 +1,15 @@
 /**
  * Main application routes
 **/
-
+const config = require('../config');
 const baseAPI = '/api';
 exports.default = function(app) {
 
-
-app.use(baseAPI+'/users', require('../api/users'));
-app.use(baseAPI+'/users-sequelize', require('../api/users-sequelize'));
+if(config.useMongo){
+    app.use(baseAPI+'/users', require('../api/authentication/users-mongo'));
+}else{
+    app.use(baseAPI+'/users', require('../api/authentication/users-sequelize'));
+}
     
 app.use(baseAPI+'/posts', require('../api/posts'));
 

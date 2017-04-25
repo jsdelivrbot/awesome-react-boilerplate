@@ -3,7 +3,7 @@ const validator = require('validator');
 const jwt = require('jsonwebtoken');
 const _ = require ('lodash');
 const bcrypt = require ('bcryptjs');
-const config = require("../../config");
+const config = require("../../../config");
 var UserSchema = new mongoose.Schema({
 
 	email: {

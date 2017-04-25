@@ -1,4 +1,4 @@
-const User = require('./../api/users/user-model');
+const User = require('./../api/authentication/users-mongo/user-model');
 
 var authenticate = (req, res, next) => {
     let token = req.header('Authorization');

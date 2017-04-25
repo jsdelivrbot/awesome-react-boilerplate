@@ -7,8 +7,6 @@
  */
 
 const _ = require('lodash');
-const {ObjectID} = require('mongodb');
-
 const User = require('./user-model');
 
 

@@ -1,12 +1,12 @@
 const {Router} = require('express');
 
 const controller = require('./user.controller');
-// const {authenticate} = require('./../../middleware/authenticate');
-const {authenticate} = require('./../../middleware/authenticate-sequelize');
+const {authenticate} = require('./../../../middleware/authenticate');
+
 var router = new Router();
 
 /**
- * @api {post} /post create
+ * @api {post} authentication/users/ Create User
  * @apiName CreateUserToken
  * @apiGroup User
  *
@@ -17,7 +17,7 @@ var router = new Router();
  */
 router.post('/', controller.create);
 /**
- * @api {get} /me get
+ * @api {get} /authentication/users/me Get User
  * @apiName GetUser
  * @apiGroup User
  *
@@ -25,7 +25,7 @@ router.post('/', controller.create);
  */
 router.get('/me', authenticate, controller.me);
 /**
- * @api {delete} /me/token logout
+ * @api {delete} /authentication/users/me/token Logout
  * @apiName LogoutUser
  * @apiGroup User
  *
@@ -33,7 +33,7 @@ router.get('/me', authenticate, controller.me);
  */
 router.delete('/me/token', authenticate, controller.logout);
 /**
- * @api {post} /login 
+ * @api {post} /authentication/users/login Login
  * @apiName LoginUser
  * @apiGroup User
  

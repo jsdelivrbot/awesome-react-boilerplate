@@ -6,7 +6,7 @@ const controller = require('./posts.controller');
 var router = new Router();
 
 /**
- * @api {post} /posts create
+ * @api {post} /posts Create Post
  * @apiName CreatePosts
  * @apiGroup Posts
  *
@@ -17,7 +17,7 @@ var router = new Router();
 router.post('/', controller.create);
 
 /**
- * @api {get} /posts all
+ * @api {get} /posts Get Posts
  * @apiName GetAllPosts
  * @apiGroup Posts
  * @apiSuccess {Object} - contain items from resource.
@@ -25,7 +25,7 @@ router.post('/', controller.create);
 router.get('/',  controller.getAll);
 
 /**
- * @api {get} /posts/:id  get
+ * @api {get} /posts/:id  Get Post
  * @apiName GetPostsById
  * @apiGroup Posts
  *
@@ -36,7 +36,7 @@ router.get('/',  controller.getAll);
 router.get('/:posts_id',  controller.getByID);
 
 /**
- * @api {delete} /posts/:id  delete
+ * @api {delete} /posts/:id  Delete Post
  * @apiName RemovePostsById
  * @apiGroup Posts
  *

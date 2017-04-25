@@ -1,10 +1,10 @@
 [
   {
     "type": "post",
-    "url": "/post",
-    "title": "create",
-    "name": "CreatePost",
-    "group": "Post",
+    "url": "/posts",
+    "title": "Create Post",
+    "name": "CreatePosts",
+    "group": "Posts",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -32,20 +32,20 @@
       }
     },
     "version": "0.0.0",
-    "filename": "src/api/post/index.js",
-    "groupTitle": "Post",
+    "filename": "src/api/posts/index.js",
+    "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://127.0.0.1/post"
+        "url": "https://127.0.0.1/api/posts"
       }
     ]
   },
   {
     "type": "get",
-    "url": "/post",
-    "title": "all",
-    "name": "GetAllPost",
-    "group": "Post",
+    "url": "/posts",
+    "title": "Get Posts",
+    "name": "GetAllPosts",
+    "group": "Posts",
     "success": {
       "fields": {
         "Success 200": [
@@ -60,20 +60,20 @@
       }
     },
     "version": "0.0.0",
-    "filename": "src/api/post/index.js",
-    "groupTitle": "Post",
+    "filename": "src/api/posts/index.js",
+    "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://127.0.0.1/post"
+        "url": "https://127.0.0.1/api/posts"
       }
     ]
   },
   {
     "type": "get",
-    "url": "/post/:id",
-    "title": "get",
-    "name": "GetPostById",
-    "group": "Post",
+    "url": "/posts/:id",
+    "title": "Get Post",
+    "name": "GetPostsById",
+    "group": "Posts",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -101,20 +101,20 @@
       }
     },
     "version": "0.0.0",
-    "filename": "src/api/post/index.js",
-    "groupTitle": "Post",
+    "filename": "src/api/posts/index.js",
+    "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://127.0.0.1/post/:id"
+        "url": "https://127.0.0.1/api/posts/:id"
       }
     ]
   },
   {
     "type": "delete",
-    "url": "/post/:id",
-    "title": "delete",
-    "name": "RemovePostById",
-    "group": "Post",
+    "url": "/posts/:id",
+    "title": "Delete Post",
+    "name": "RemovePostsById",
+    "group": "Posts",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -142,59 +142,18 @@
       }
     },
     "version": "0.0.0",
-    "filename": "src/api/post/index.js",
-    "groupTitle": "Post",
+    "filename": "src/api/posts/index.js",
+    "groupTitle": "Posts",
     "sampleRequest": [
       {
-        "url": "https://127.0.0.1/post/:id"
-      }
-    ]
-  },
-  {
-    "type": "put",
-    "url": "/post/:id",
-    "title": "update",
-    "name": "UpdatePostById",
-    "group": "Post",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Object",
-            "optional": false,
-            "field": "-",
-            "description": "<p>contain message.</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "src/api/post/index.js",
-    "groupTitle": "Post",
-    "sampleRequest": [
-      {
-        "url": "https://127.0.0.1/post/:id"
+        "url": "https://127.0.0.1/api/posts/:id"
       }
     ]
   },
   {
     "type": "post",
-    "url": "/post",
-    "title": "create",
+    "url": "/authentication/users/",
+    "title": "Create User",
     "name": "CreateUserToken",
     "group": "User",
     "parameter": {
@@ -231,18 +190,66 @@
       }
     },
     "version": "0.0.0",
-    "filename": "src/api/users/index.js",
+    "filename": "src/api/authentication/users-sequelize/index.js",
     "groupTitle": "User",
     "sampleRequest": [
       {
-        "url": "https://127.0.0.1/post"
+        "url": "https://127.0.0.1/api/authentication/users/"
+      }
+    ]
+  },
+  {
+    "type": "post",
+    "url": "authentication/users/",
+    "title": "Create User",
+    "name": "CreateUserToken",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "-",
+            "description": "<p>set header x-auth with generated token.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/authentication/users-mongo/index.js",
+    "groupTitle": "User",
+    "sampleRequest": [
+      {
+        "url": "https://127.0.0.1/apiauthentication/users/"
       }
     ]
   },
   {
     "type": "get",
-    "url": "/me",
-    "title": "get",
+    "url": "/authentication/users/me",
+    "title": "Get User",
     "name": "GetUser",
     "group": "User",
     "success": {
@@ -259,18 +266,46 @@
       }
     },
     "version": "0.0.0",
-    "filename": "src/api/users/index.js",
+    "filename": "src/api/authentication/users-mongo/index.js",
     "groupTitle": "User",
     "sampleRequest": [
       {
-        "url": "https://127.0.0.1/me"
+        "url": "https://127.0.0.1/api/authentication/users/me"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "/authentication/users/me",
+    "title": "Get User",
+    "name": "GetUser",
+    "group": "User",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "-",
+            "description": "<p>get current user.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/authentication/users-sequelize/index.js",
+    "groupTitle": "User",
+    "sampleRequest": [
+      {
+        "url": "https://127.0.0.1/api/authentication/users/me"
       }
     ]
   },
   {
     "type": "post",
-    "url": "/login",
-    "title": "",
+    "url": "/authentication/users/login",
+    "title": "Login",
     "name": "LoginUser",
     "group": "User",
     "parameter": {
@@ -307,18 +342,66 @@
       }
     },
     "version": "0.0.0",
-    "filename": "src/api/users/index.js",
+    "filename": "src/api/authentication/users-sequelize/index.js",
     "groupTitle": "User",
     "sampleRequest": [
       {
-        "url": "https://127.0.0.1/login"
+        "url": "https://127.0.0.1/api/authentication/users/login"
+      }
+    ]
+  },
+  {
+    "type": "post",
+    "url": "/authentication/users/login",
+    "title": "Login",
+    "name": "LoginUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "-",
+            "description": "<p>set header x-auth with generated token.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/authentication/users-mongo/index.js",
+    "groupTitle": "User",
+    "sampleRequest": [
+      {
+        "url": "https://127.0.0.1/api/authentication/users/login"
       }
     ]
   },
   {
     "type": "delete",
-    "url": "/me/token",
-    "title": "logout",
+    "url": "/authentication/users/me/token",
+    "title": "Logout",
     "name": "LogoutUser",
     "group": "User",
     "success": {
@@ -335,11 +418,39 @@
       }
     },
     "version": "0.0.0",
-    "filename": "src/api/users/index.js",
+    "filename": "src/api/authentication/users-mongo/index.js",
     "groupTitle": "User",
     "sampleRequest": [
       {
-        "url": "https://127.0.0.1/me/token"
+        "url": "https://127.0.0.1/api/authentication/users/me/token"
+      }
+    ]
+  },
+  {
+    "type": "delete",
+    "url": "/authentication/users/me/token",
+    "title": "Logout",
+    "name": "LogoutUser",
+    "group": "User",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "-",
+            "description": "<p>delete current token - status 200.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/authentication/users-sequelize/index.js",
+    "groupTitle": "User",
+    "sampleRequest": [
+      {
+        "url": "https://127.0.0.1/api/authentication/users/me/token"
       }
     ]
   }
