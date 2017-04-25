@@ -22,6 +22,16 @@ export default (baseURL = REDUXBLOG_ROOT_URL) => {
             });
         },
 
+
+        fetchPost: (id) => {
+            return request({
+                method: 'get',
+                baseURL: baseURL,
+                url: '/posts/' + id,
+                params: {key: API_KEY}
+            });
+        },
+
         createPost: (data) => {
             return request({
                 method: 'post',

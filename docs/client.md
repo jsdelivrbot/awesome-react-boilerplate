@@ -133,10 +133,16 @@ with API call :
 > **Container** - Creating container with cli will create for you all the 
 necessary files to reducers saga and actions.
 
+> **Container** - If --name exist it will create the container `.js` file inside the existing folder.
+
 
 ### Create Container by cli
 ```
 $ gulp createContainer --name myContainer --className myClassName --storeName myStoreName
+```
+### Create Only Container by cli (without action, saga and reducer)
+```
+$ gulp createContainerOnly --name myContainer --className myClassName
 ```
 ### create your Container manually
 ```markdown
@@ -147,7 +153,7 @@ $ gulp createContainer --name myContainer --className myClassName --storeName my
 ```JSX
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPosts } from '../../actions/posts/actions_posts';
+import * as actions from '../../actions/posts/actions_posts';
 import { Link } from 'react-router';
 import { POSTS_NEW } from '../../routes'
 
@@ -194,7 +200,7 @@ export default connect(
         }
     },
     {
-        fetchPosts
+        fetchPosts: actions.fetchPosts
     }
 )(PostsIndex);
 ```
@@ -214,10 +220,16 @@ It work with `Core Components`.
 > **Form Container** - Creating form container with cli will create for you all the 
 necessary files to reducers saga and actions.
 
+> **Form Container** - If --name exist it will create the container `.js` file inside the existing folder.
+
 
 ### Create Form Container by cli
 ```
 $ gulp createFormContainer --name myContainer --className myClassName --storeName myStoreName
+```
+### Create Only Form Container by cli (without action, saga and reducer)
+```
+$ gulp createFormContainerOnly --name myContainer --className myClassName
 ```
 ### create your Container manually
 ```markdown
@@ -228,7 +240,7 @@ $ gulp createFormContainer --name myContainer --className myClassName --storeNam
 ```JSX
 import React, { Component } from 'react';
 import { connectWithReduxForm } from 'redux-form-field';
-import { createPost, initializePosts } from '../../actions/posts/actions_posts';
+import * as actions from '../../actions/posts/actions_posts';
 import { Link, browserHistory } from 'react-router';
 import { ROOT } from '../../routes';
 
@@ -295,8 +307,8 @@ export default connectWithReduxForm(PostsNew,
         }
     },
     {
-        createPost,
-        initializePosts
+        createPost: actions.createPost,
+        initializePosts: actions.initializePosts
     },
     {
         form : 'PostsNewForm',
